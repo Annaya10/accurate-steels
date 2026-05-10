@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Accurate Steel Fabrication EST</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Accurate Steel Fabrication" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="logo-fallback">
+        <span class="logo-mark">ASF</span>
+        <span class="logo-text">Accurate Steel<br><small>Fabrication EST</small></span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="clients.html">Clients</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get a Quote</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero page-hero--img">
+  <img
+    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80&auto=format&fit=crop"
+    alt="Steel structure construction project"
+    class="page-hero-bg"
+    loading="eager"
+  />
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Projects</span>
+    </div>
+    <span class="section-label">Portfolio Approach</span>
+    <h1>Engineering Excellence:<br>Our Portfolio</h1>
+    <p>A showcase of precision engineering, structural integrity, and marine innovation delivered across the UAE and beyond.</p>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="projects-stats">
+  <div class="container">
+    <div class="projects-stats-grid">
+      <div class="ps-stat"><strong>500<em>+</em></strong><span>Projects Completed</span></div>
+      <div class="ps-stat"><strong>15<em>k</em></strong><span>Tons of Steel</span></div>
+      <div class="ps-stat"><strong>25<em>+</em></strong><span>Years Experience</span></div>
+      <div class="ps-stat"><strong>100<em>%</em></strong><span>Safety Compliance</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROJECTS GRID ===== -->
+<section class="projects-page">
+  <div class="container">
+    <div class="project-filters" style="margin-bottom:40px;">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="structural">Structural Steel</button>
+      <button class="filter-btn" data-filter="marine">Marine Engineering</button>
+      <button class="filter-btn" data-filter="machining">CNC Machining</button>
+      <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+    </div>
+
+    <div class="projects-full-grid" id="projects-full-grid">
+
+      <!-- Structural -->
+      <div class="proj-card" data-category="structural">
+        <div class="proj-img proj-img--s1">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75&auto=format&fit=crop" alt="Khalifa Port Extension structural steel" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="7" width="20" height="14" rx="1"/></svg></div>
+          <span class="proj-cat-tag">Structural Steel</span>
+          <div class="proj-name-bar">Khalifa Port Extension</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Abu Dhabi</span>
+          </div>
+          <h3>Khalifa Port Extension</h3>
+          <p>Fabrication and installation of heavy-duty crane structures and mooring systems designed for high-salinity environments.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Structural Steel</span>
+            <span class="proj-tag">Marine Grade</span>
+            <span class="proj-tag">AWS D1.1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-category="structural">
+        <div class="proj-img proj-img--s2">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75&auto=format&fit=crop" alt="Expo City Warehouse steel portal frames" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <span class="proj-cat-tag">Structural Steel</span>
+          <div class="proj-name-bar">Expo City Warehouse Complex</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Dubai</span>
+          </div>
+          <h3>Expo City Warehouse Complex</h3>
+          <p>Custom long-span steel portal frames for a 50,000 sq.ft logistics facility, completed ahead of schedule.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Portal Frame</span>
+            <span class="proj-tag">50,000 sq.ft</span>
+            <span class="proj-tag">Logistics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-category="structural">
+        <div class="proj-img proj-img--s3">
+          <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600&q=75&auto=format&fit=crop" alt="Commercial facade stainless steel" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg></div>
+          <span class="proj-cat-tag">Architectural</span>
+          <div class="proj-name-bar">Commercial Facade Steel</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Dubai</span>
+          </div>
+          <h3>Commercial Facade Steel</h3>
+          <p>Architectural stainless steel cladding and structural facade elements for a landmark commercial tower.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Stainless Steel</span>
+            <span class="proj-tag">Architectural</span>
+            <span class="proj-tag">Facade</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marine -->
+      <div class="proj-card" data-category="marine">
+        <div class="proj-img proj-img--m1">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75&auto=format&fit=crop" alt="Offshore platform marine engineering" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg></div>
+          <span class="proj-cat-tag">Marine Engineering</span>
+          <div class="proj-name-bar">Offshore Platform Support</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Abu Dhabi</span>
+          </div>
+          <h3>Offshore Platform Support</h3>
+          <p>Precision fabrication of offshore platform supports for high-salinity environments, meeting API standards.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Offshore</span>
+            <span class="proj-tag">API Standard</span>
+            <span class="proj-tag">Marine Grade</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-category="marine">
+        <div class="proj-img proj-img--m2">
+          <img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=600&q=75&auto=format&fit=crop" alt="Commercial vessel hull repair" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <span class="proj-cat-tag">Marine Engineering</span>
+          <div class="proj-name-bar">Commercial Vessel Hull Repair</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Dubai</span>
+          </div>
+          <h3>Commercial Vessel Hull Repair</h3>
+          <p>Emergency hull repair and structural reinforcement for a 180m commercial cargo vessel at Dubai dry dock.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Hull Repair</span>
+            <span class="proj-tag">Emergency</span>
+            <span class="proj-tag">Class Approved</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-category="marine">
+        <div class="proj-img proj-img--m3">
+          <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=600&q=75&auto=format&fit=crop" alt="Marine piping system overhaul" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12"/></svg></div>
+          <span class="proj-cat-tag">Marine Piping</span>
+          <div class="proj-name-bar">Marine Piping System Overhaul</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Musaffah</span>
+          </div>
+          <h3>Marine Piping System Overhaul</h3>
+          <p>Complete replacement of ballast and fuel piping systems for an offshore supply vessel fleet.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Piping</span>
+            <span class="proj-tag">Ballast System</span>
+            <span class="proj-tag">Fleet</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CNC Machining -->
+      <div class="proj-card" data-category="machining">
+        <div class="proj-img proj-img--c1">
+          <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=75&auto=format&fit=crop" alt="CNC precision machining flanges" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+          <span class="proj-cat-tag">CNC Machining</span>
+          <div class="proj-name-bar">Precision Industrial Pipes</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Abu Dhabi</span>
+          </div>
+          <h3>Precision Industrial Pipes</h3>
+          <p>High-precision machining of concaved flanges and valves for offshore rigs meeting API 6A standards.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">API 6A</span>
+            <span class="proj-tag">±0.01mm</span>
+            <span class="proj-tag">Flanges</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-category="machining">
+        <div class="proj-img proj-img--c2">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=75&auto=format&fit=crop" alt="Oilfield valve components machining" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div>
+          <span class="proj-cat-tag">CNC Machining</span>
+          <div class="proj-name-bar">Oilfield Componentry</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Musaffah</span>
+          </div>
+          <h3>Oilfield Componentry</h3>
+          <p>Batch production of 500+ precision-machined valve bodies and actuator components for a major oilfield operator.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Batch Production</span>
+            <span class="proj-tag">Valve Bodies</span>
+            <span class="proj-tag">Oil &amp; Gas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-category="machining">
+        <div class="proj-img proj-img--c3">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=75&auto=format&fit=crop" alt="Petrochemical platform CAD CAM components" class="proj-real-img" loading="lazy">
+          <div class="proj-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+          <span class="proj-cat-tag">CAD/CAM</span>
+          <div class="proj-name-bar">Petrochemical Platform Components</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Abu Dhabi</span>
+          </div>
+          <h3>Petrochemical Platform Components</h3>
+          <p>CAD/CAM design and CNC fabrication of custom structural components for a petrochemical processing platform.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">CAD/CAM</span>
+            <span class="proj-tag">Petrochemical</span>
+            <span class="proj-tag">Custom</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CASE STUDIES ===== -->
+<section class="case-studies" id="case-studies">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Case Studies</span>
+      <h2>Engineering Challenges, Tailored Solutions</h2>
+      <p>How we meet specific customer needs through precision engineering and collaborative partnership.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="case-studies-grid">
+      <div class="case-study-card">
+        <div class="cs-header">
+          <span class="cs-category">Structural Steel</span>
+          <span class="cs-location">Abu Dhabi</span>
+        </div>
+        <h3>Khalifa Port Crane Structures</h3>
+        <div class="cs-challenge">
+          <span class="cs-label">Challenge</span>
+          <p>Client required heavy-duty crane support structures capable of withstanding high-salinity marine environments, with a compressed 8-week delivery window and zero tolerance for dimensional variance.</p>
+        </div>
+        <div class="cs-solution">
+          <span class="cs-label">Our Solution</span>
+          <p>We fabricated the structures using marine-grade steel with SA 2.5 blasting and epoxy coating, deploying a dedicated team of AWS D1.1 certified welders. Full NDT testing was completed on-site, and delivery was achieved 5 days ahead of schedule.</p>
+        </div>
+        <div class="cs-tags">
+          <span class="proj-tag">Marine Grade Steel</span>
+          <span class="proj-tag">AWS D1.1</span>
+          <span class="proj-tag">On-Time Delivery</span>
+        </div>
+      </div>
+      <div class="case-study-card">
+        <div class="cs-header">
+          <span class="cs-category">CNC Machining</span>
+          <span class="cs-location">Musaffah</span>
+        </div>
+        <h3>Oilfield Valve Body Production</h3>
+        <div class="cs-challenge">
+          <span class="cs-label">Challenge</span>
+          <p>A major oilfield operator needed 500+ precision valve bodies and actuator components to API 6A standards, with ±0.01mm tolerances and full material traceability documentation within 6 weeks.</p>
+        </div>
+        <div class="cs-solution">
+          <span class="cs-label">Our Solution</span>
+          <p>Our 5-axis CNC machining center ran dual-shift operations with real-time quality checks at every stage. Full mill certificates and dimensional reports were provided for every batch, meeting API 6A requirements with zero rejections.</p>
+        </div>
+        <div class="cs-tags">
+          <span class="proj-tag">API 6A</span>
+          <span class="proj-tag">±0.01mm</span>
+          <span class="proj-tag">Zero Rejections</span>
+        </div>
+      </div>
+      <div class="case-study-card">
+        <div class="cs-header">
+          <span class="cs-category">Marine Engineering</span>
+          <span class="cs-location">Dubai</span>
+        </div>
+        <h3>Emergency Hull Repair — Cargo Vessel</h3>
+        <div class="cs-challenge">
+          <span class="cs-label">Challenge</span>
+          <p>A 180m commercial cargo vessel sustained hull damage at Dubai dry dock, requiring emergency structural repair and class-approved certification within 72 hours to avoid costly port delays.</p>
+        </div>
+        <div class="cs-solution">
+          <span class="cs-label">Our Solution</span>
+          <p>Our 24/7 marine response team mobilized within 4 hours. We completed cut-and-weld hull repairs, aluminum work on the superstructure, hydraulic system checks, and full blasting and painting — delivering class certification within 68 hours.</p>
+        </div>
+        <div class="cs-tags">
+          <span class="proj-tag">Emergency Response</span>
+          <span class="proj-tag">Class Approved</span>
+          <span class="proj-tag">68-Hour Turnaround</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="clients-trust" style="padding:96px 0;background:var(--white);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Client Showcase</span>
+      <h2>Trusted by Industry Leaders</h2>
+      <p>Delivering precision fabrication to the UAE's most demanding industrial operators.</p>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- CLIENT LOGOS — grayscale → color on hover -->
+    <div class="client-logos-strip">
+      <div class="cl-logo" title="ADNOC">
+        <div class="cl-logo-inner cl-adnoc">
+          <span>ADNOC</span>
+          <small>Abu Dhabi National Oil Company</small>
+        </div>
+      </div>
+      <div class="cl-logo" title="DP World">
+        <div class="cl-logo-inner cl-dpworld">
+          <span>DP World</span>
+          <small>Global Port Operator</small>
+        </div>
+      </div>
+      <div class="cl-logo" title="AL DAR Properties">
+        <div class="cl-logo-inner cl-aldar">
+          <span>AL DAR</span>
+          <small>Properties PJSC</small>
+        </div>
+      </div>
+      <div class="cl-logo" title="Petrofac">
+        <div class="cl-logo-inner cl-petrofac">
+          <span>Petrofac</span>
+          <small>Energy Services</small>
+        </div>
+      </div>
+      <div class="cl-logo" title="Lamprell">
+        <div class="cl-logo-inner cl-lamprell">
+          <span>Lamprell</span>
+          <small>Energy Ltd.</small>
+        </div>
+      </div>
+      <div class="cl-logo" title="NPCC">
+        <div class="cl-logo-inner cl-npcc">
+          <span>NPCC</span>
+          <small>National Petroleum Construction</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="testimonials-grid" style="margin-top:64px;">
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:24px;height:24px;color:var(--steel-blue);opacity:0.3;margin-bottom:12px;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.293-3.995 5.848h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.293-3.996 5.848h3.983v10h-9.983z"/></svg>
+        </div>
+        <p>"Accurate Steel's attention to detail during the fabrication of our offshore platform supports was exceptional. They delivered ahead of schedule without compromising on a single weld quality."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SA</div>
+          <div><strong>Sami Al-Farsi</strong><span>Project Director, Marine Logistics UAE</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:24px;height:24px;color:var(--steel-blue);opacity:0.3;margin-bottom:12px;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.293-3.995 5.848h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.293-3.996 5.848h3.983v10h-9.983z"/></svg>
+        </div>
+        <p>"Working with their engineering team felt like having an internal partner. Their ability to handle complex structural modifications on-site was crucial for our refinery project."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SJ</div>
+          <div><strong>Sarah Jenkins</strong><span>Senior Structural Engineer, Global Oil</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:24px;height:24px;color:var(--steel-blue);opacity:0.3;margin-bottom:12px;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.293-3.995 5.848h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.293-3.996 5.848h3.983v10h-9.983z"/></svg>
+        </div>
+        <p>"From shop drawings to final erection, the precision was flawless. The steelwork for our new warehouse fits perfectly, meeting all international safety standards."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">DC</div>
+          <div><strong>David Chen</strong><span>Operations Manager, Far East Industrial</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section style="padding:72px 0;background:var(--charcoal-d);">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">Your Project Next</span>
+    <h2 style="color:var(--white);margin-bottom:16px;">Forging the Future of the Emirates</h2>
+    <p style="color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 32px;line-height:1.7;">Our structural steel solutions are the backbone of the UAE's industrial growth. Let's build something that stands the test of time and steel.</p>
+    <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo logo--light">
+        <img src="images/logo.png" alt="Accurate Steel Fabrication" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="logo-fallback">
+          <span class="logo-mark">ASF</span>
+          <span class="logo-text">Accurate Steel<br><small>Fabrication EST</small></span>
+        </span>
+      </a>
+      <p>Precision engineering and high-quality steel solutions for the oil &amp; gas, construction, and infrastructure sectors across the UAE since 2015.</p>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" aria-label="Skype"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.069 18.874c-4.023 0-5.82-1.979-5.82-3.464 0-.765.561-1.296 1.333-1.296 1.723 0 1.273 2.477 4.487 2.477 1.641 0 2.55-.895 2.55-1.811 0-.551-.269-1.16-1.354-1.429l-3.576-.895c-2.88-.724-3.403-2.286-3.403-3.751 0-3.047 2.861-4.191 5.549-4.191 2.471 0 5.393 1.373 5.393 3.199 0 .784-.688 1.24-1.453 1.24-1.469 0-1.198-2.037-4.164-2.037-1.469 0-2.292.664-2.292 1.617s1.153 1.258 2.157 1.487l2.637.587c2.891.649 3.624 2.346 3.624 3.944 0 2.476-1.902 4.324-5.668 4.324m9.931-5.535a9.13 9.13 0 0 1 .08 1.19c0 5.086-4.063 9.21-9.08 9.21a8.98 8.98 0 0 1-4.952-1.483 5.28 5.28 0 0 1-1.064.107c-2.924 0-5.294-2.384-5.294-5.324a5.37 5.37 0 0 1 .75-2.742A9.266 9.266 0 0 1 2.999 12c0-5.086 4.063-9.21 9.08-9.21a8.98 8.98 0 0 1 5.055 1.55 5.24 5.24 0 0 1 .906-.079c2.924 0 5.294 2.384 5.294 5.324a5.37 5.37 0 0 1-.334 1.754z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="services.html#fabrication">Heavy Steel Fabrication</a></li>
+        <li><a href="services.html#marine">Marine Engineering</a></li>
+        <li><a href="services.html#cnc">CNC Machining</a></li>
+        <li><a href="services.html#maintenance">Industrial Maintenance</a></li>
+        <li><a href="about.html#quality">Quality Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul class="contact-list">
+        <li>+971 50 470 7731</li>
+        <li>accurateengg15@gmail.com</li>
+        <li>M-15, Musaffah Industrial Area<br>Abu Dhabi, UAE</li>
+        <li>Mon–Sat: 8am – 6pm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2025 Accurate Steel Fabrication Est. – Total Solution Provider for Mechanical Engineering. All Rights Reserved.</p>
+      <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

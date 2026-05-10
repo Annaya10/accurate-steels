@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Accurate Steel Fabrication EST</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Accurate Steel Fabrication" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="logo-fallback">
+        <span class="logo-mark">ASF</span>
+        <span class="logo-text">Accurate Steel<br><small>Fabrication EST</small></span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="clients.html">Clients</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get a Quote</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero page-hero--img">
+  <img
+    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop"
+    alt="Modern industrial office contact"
+    class="page-hero-bg"
+    loading="eager"
+  />
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Contact</span>
+    </div>
+    <span class="section-label">Let's Build Together</span>
+    <h1>Contact Our<br>Engineering Team</h1>
+    <p>Precision fabrication starts with a conversation. Reach out to discuss your structural steel, industrial manufacturing, or custom metalwork requirements.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT MAIN ===== -->
+<section class="contact-page">
+  <div class="container">
+    <div class="contact-page-grid">
+
+      <!-- RFQ FORM -->
+      <div class="contact-form-wrap">
+        <span class="section-label">Project Inquiry</span>
+        <h2>Request a Quote</h2>
+        <p>Fill in your project details and our engineering team will respond within 24 hours with a detailed proposal.</p>
+
+        <form class="rfq-form contact-form" id="rfq-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" name="full_name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="company">Company Name *</label>
+              <input type="text" id="company" name="company" placeholder="Engineering Ltd." required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="contact@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+971 50 000 0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Required *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option>Heavy Steel Fabrication</option>
+              <option>Marine Engineering &amp; Ship Repair</option>
+              <option>CNC Machining &amp; CAD/CAM</option>
+              <option>Industrial Maintenance</option>
+              <option>Hydraulic Services</option>
+              <option>Industrial Painting &amp; Blasting</option>
+              <option>Other / Multiple Services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project-type">Project Type *</label>
+            <select id="project-type" name="project_type" required>
+              <option value="" disabled selected>Select project type...</option>
+              <option>New Fabrication / Build</option>
+              <option>Repair &amp; Modification</option>
+              <option>Maintenance Contract (AMC)</option>
+              <option>Emergency / Urgent Repair</option>
+              <option>Prototype / R&amp;D</option>
+              <option>Turnkey / EPC Project</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="material-req">Material Requirements</label>
+            <select id="material-req" name="material_requirements">
+              <option value="" disabled selected>Select material type...</option>
+              <option>Mild Steel (MS)</option>
+              <option>Stainless Steel (SS 304 / 316)</option>
+              <option>Aluminum</option>
+              <option>Alloy Steel</option>
+              <option>Carbon Steel</option>
+              <option>Duplex / Super Duplex</option>
+              <option>Client to Supply Material</option>
+              <option>Multiple / To Be Confirmed</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="part-number">Part Number / Drawing Ref.</label>
+              <input type="text" id="part-number" name="part_number" placeholder="e.g. DWG-2024-001" />
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantity Required</label>
+              <input type="number" id="quantity" name="quantity" placeholder="e.g. 50 units" min="1" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="deadline">Project Deadline</label>
+              <input type="date" id="deadline" name="deadline" />
+            </div>
+            <div class="form-group">
+              <label for="budget">Estimated Budget (USD)</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Select range...</option>
+                <option>Under $10,000</option>
+                <option>$10,000 – $50,000</option>
+                <option>$50,000 – $200,000</option>
+                <option>$200,000 – $500,000</option>
+                <option>$500,000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="specs">Project Specifications *</label>
+            <textarea id="specs" name="specs" rows="5" placeholder="Describe your fabrication requirements, dimensions, material grades, tolerances, and any special standards to be met (e.g. ASME, API, AWS)..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="file-upload">Upload Drawings / Blueprints</label>
+            <div class="file-upload-wrap">
+              <input type="file" id="file-upload" name="file_upload" accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png,.zip" multiple />
+              <label for="file-upload" class="file-upload-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>Click to upload or drag &amp; drop</span>
+                <small>PDF, DWG, DXF, JPG, PNG, ZIP — Max 20MB</small>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:0.85rem;font-weight:400;color:var(--steel);">
+              <input type="checkbox" name="urgent" style="width:16px;height:16px;accent-color:var(--steel-blue);" />
+              This is an urgent / emergency request (24hr response required)
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full">
+            Submit Inquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <div class="form-success" id="form-success" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Thank you! We'll respond within 24 hours.
+          </div>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
+
+        <div class="contact-info-card">
+          <h3>Direct Contact</h3>
+          <div class="contact-detail">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <span>Call Operations</span>
+              <strong><a href="tel:+971504707731">+971 50 470 7731</a></strong>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <span>Email Estimations</span>
+              <strong><a href="mailto:accurateengg15@gmail.com">accurateengg15@gmail.com</a></strong>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <span>Visit Facility</span>
+              <strong>M-15, Musaffah Industrial Area<br>Abu Dhabi, UAE</strong>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div>
+              <span>Working Hours</span>
+              <strong>Mon–Sat: 8am – 6pm</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- GOOGLE MAPS EMBED -->
+        <div class="map-card">
+          <iframe
+            class="map-embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3632.0!2d54.5!3d24.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e4a0000000001%3A0x1!2sMussafah+Industrial+Area%2C+Abu+Dhabi!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Accurate Steel Fabrication Location - Musaffah, Abu Dhabi">
+          </iframe>
+          <div class="map-footer">
+            <span>M-15, Musaffah Industrial Area</span>
+            <a href="https://maps.google.com/?q=Musaffah+Industrial+Area+Abu+Dhabi" target="_blank" rel="noopener">
+              Open in Maps
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- HOURS -->
+        <div class="hours-card">
+          <h4>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:6px;color:var(--teal)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Operational Hours
+          </h4>
+          <div class="hours-row"><span>Monday – Friday</span><span>8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span>Saturday</span><span>8:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span>Sunday</span><span class="closed">Closed</span></div>
+          <div class="hours-row" style="border-top:1px solid rgba(255,255,255,0.1);margin-top:8px;padding-top:12px;">
+            <span style="color:var(--teal);font-size:0.78rem;font-weight:600;">Emergency Line</span>
+            <span style="color:var(--teal);font-size:0.78rem;font-weight:600;">24/7 Available</span>
+          </div>
+        </div>
+
+        <!-- TRUST BADGES -->
+        <div class="trust-badges" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="trust-badge" style="background:var(--white);border:1px solid var(--border);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--steel-blue)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <strong style="color:var(--charcoal)">24 Hour</strong>
+            <span style="color:var(--steel)">Response Time</span>
+          </div>
+          <div class="trust-badge" style="background:var(--white);border:1px solid var(--border);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--steel-blue)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <strong style="color:var(--charcoal)">ISO 9001</strong>
+            <span style="color:var(--steel)">Certified</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTHORIZED PARTNERS ===== -->
+<section class="authorized-partners">
+  <div class="container">
+    <p class="ap-label">Authorized Partners &amp; Material Standards</p>
+    <div class="ap-logos">
+      <div class="ap-logo">
+        <div class="ap-logo-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Lincoln Electric</span>
+        </div>
+      </div>
+      <div class="ap-logo">
+        <div class="ap-logo-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+          <span>ESAB Welding</span>
+        </div>
+      </div>
+      <div class="ap-logo">
+        <div class="ap-logo-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>ISO 9001:2015</span>
+        </div>
+      </div>
+      <div class="ap-logo">
+        <div class="ap-logo-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>
+          <span>AISC Member</span>
+        </div>
+      </div>
+      <div class="ap-logo">
+        <div class="ap-logo-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>AWS D1.1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo logo--light">
+        <img src="images/logo.png" alt="Accurate Steel Fabrication" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="logo-fallback">
+          <span class="logo-mark">ASF</span>
+          <span class="logo-text">Accurate Steel<br><small>Fabrication EST</small></span>
+        </span>
+      </a>
+      <p>Precision engineering and high-quality steel solutions for the oil &amp; gas, construction, and infrastructure sectors across the UAE since 2015.</p>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" aria-label="Skype"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.069 18.874c-4.023 0-5.82-1.979-5.82-3.464 0-.765.561-1.296 1.333-1.296 1.723 0 1.273 2.477 4.487 2.477 1.641 0 2.55-.895 2.55-1.811 0-.551-.269-1.16-1.354-1.429l-3.576-.895c-2.88-.724-3.403-2.286-3.403-3.751 0-3.047 2.861-4.191 5.549-4.191 2.471 0 5.393 1.373 5.393 3.199 0 .784-.688 1.24-1.453 1.24-1.469 0-1.198-2.037-4.164-2.037-1.469 0-2.292.664-2.292 1.617s1.153 1.258 2.157 1.487l2.637.587c2.891.649 3.624 2.346 3.624 3.944 0 2.476-1.902 4.324-5.668 4.324m9.931-5.535a9.13 9.13 0 0 1 .08 1.19c0 5.086-4.063 9.21-9.08 9.21a8.98 8.98 0 0 1-4.952-1.483 5.28 5.28 0 0 1-1.064.107c-2.924 0-5.294-2.384-5.294-5.324a5.37 5.37 0 0 1 .75-2.742A9.266 9.266 0 0 1 2.999 12c0-5.086 4.063-9.21 9.08-9.21a8.98 8.98 0 0 1 5.055 1.55 5.24 5.24 0 0 1 .906-.079c2.924 0 5.294 2.384 5.294 5.324a5.37 5.37 0 0 1-.334 1.754z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="services.html#fabrication">Heavy Steel Fabrication</a></li>
+        <li><a href="services.html#marine">Marine Engineering</a></li>
+        <li><a href="services.html#cnc">CNC Machining</a></li>
+        <li><a href="services.html#maintenance">Industrial Maintenance</a></li>
+        <li><a href="about.html#quality">Quality Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul class="contact-list">
+        <li>+971 50 470 7731</li>
+        <li>accurateengg15@gmail.com</li>
+        <li>M-15, Musaffah Industrial Area<br>Abu Dhabi, UAE</li>
+        <li>Mon–Sat: 8am – 6pm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2025 Accurate Steel Fabrication Est. – Total Solution Provider for Mechanical Engineering. All Rights Reserved.</p>
+      <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
