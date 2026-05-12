@@ -5,13 +5,13 @@
 
 // --- Sticky header on scroll ---
 const header = document.getElementById('site-header');
-if (header) {
-  window.addEventListener('scroll', () => {
-    header.style.background = window.scrollY > 40
-      ? 'rgba(15,20,26,0.98)'
-      : 'rgba(15,20,26,0.95)';
-  });
-}
+// if (header) {
+//   window.addEventListener('scroll', () => {
+//     header.style.background = window.scrollY > 40
+//       ? 'rgba(15,20,26,0.98)'
+//       : 'rgba(15,20,26,0.95)';
+//   });
+// }
 
 // --- Mobile hamburger ---
 const hamburger = document.getElementById('hamburger');
