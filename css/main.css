@@ -325,7 +325,7 @@ h4 { font-size: 1rem; font-weight: 600; }
 .stat {
   flex: 1;
   text-align: center;
-  padding: 20px 16px;
+    padding: 9px 16px;
   border-right: 1px solid rgba(255,255,255,0.07);
 }
 .stat:last-child { border-right: none; }
@@ -1098,7 +1098,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    ============================================ */
 .contact-cta {
   position: relative;
-  padding: 100px 0;
+     padding: 61px 0;
   background: linear-gradient(135deg, var(--brand-blue-d) 0%, #0a1628 50%, #0d2137 100%);
   overflow: hidden;
   text-align: center;
@@ -1119,7 +1119,7 @@ h4 { font-size: 1rem; font-weight: 600; }
 }
 .contact-cta-text h2 {
   color: var(--white);
-  font-size: clamp(2rem, 4vw, 3rem);
+ font-size: 280%;
   margin: 12px 0 16px;
   line-height: 1.15;
 }
@@ -1144,7 +1144,7 @@ h4 { font-size: 1rem; font-weight: 600; }
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 56px;
-  padding: 14px 28px 14px 18px;
+    padding: 4px 13px;
   text-decoration: none;
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
@@ -1154,8 +1154,8 @@ h4 { font-size: 1rem; font-weight: 600; }
   transform: translateY(-2px);
 }
 .cta-phone-icon {
-  width: 52px;
-  height: 52px;
+ width: 45px;
+    height: 45px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-teal-l) 100%);
   display: flex;
@@ -1175,6 +1175,7 @@ h4 { font-size: 1rem; font-weight: 600; }
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 2px;
+  margin-left: 1%;
 }
 .cta-phone-info strong {
   font-size: 1.25rem;
@@ -1565,7 +1566,7 @@ h4 { font-size: 1rem; font-weight: 600; }
 }
 .gallery-item img {
   width: 100%;
-  height: 260px;
+  height: 316px;
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
