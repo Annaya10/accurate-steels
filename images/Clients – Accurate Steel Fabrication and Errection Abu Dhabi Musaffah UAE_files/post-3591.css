@@ -1,0 +1,83 @@
+.avia-section.av-38pgrr-67163369ffb6386236b115006ac9987c{
+background-repeat:no-repeat;
+background-image:url(https://www.accfab.com/wp-content/uploads/2022/03/our-clients.jpg);
+background-position:50% 50%;
+background-attachment:scroll;
+}
+.avia-section.av-38pgrr-67163369ffb6386236b115006ac9987c .av-section-color-overlay{
+opacity:0.5;
+background-color:#0a0a0a;
+}
+
+#top .av-special-heading.av-l0zktdpb-68daeef740bda7b005e02dc1b853b5ad{
+padding-bottom:10px;
+color:#ffffff;
+font-size:30px;
+}
+body .av-special-heading.av-l0zktdpb-68daeef740bda7b005e02dc1b853b5ad .av-special-heading-tag .heading-char{
+font-size:25px;
+}
+#top #wrap_all .av-special-heading.av-l0zktdpb-68daeef740bda7b005e02dc1b853b5ad .av-special-heading-tag{
+font-size:30px;
+}
+.av-special-heading.av-l0zktdpb-68daeef740bda7b005e02dc1b853b5ad .special-heading-inner-border{
+border-color:#ffffff;
+}
+.av-special-heading.av-l0zktdpb-68daeef740bda7b005e02dc1b853b5ad .av-subheading{
+font-size:15px;
+}
+
+#top .av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6{
+padding-bottom:10px;
+font-size:30px;
+}
+body .av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-special-heading-tag .heading-char{
+font-size:25px;
+}
+#top #wrap_all .av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-special-heading-tag{
+font-size:30px;
+}
+.av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-subheading{
+font-size:14px;
+}
+
+#top .hr.av-19ka58n-a0d39733fa045ed447a9ec9348ba6ee1{
+margin-top:30px;
+margin-bottom:30px;
+}
+.hr.av-19ka58n-a0d39733fa045ed447a9ec9348ba6ee1 .hr-inner{
+width:50px;
+max-width:45%;
+}
+
+.avia-logo-element-container.av-18lo04n-ccde784c96f2e0a7d62a6e2ab0126dce .av-partner-fake-img{
+background-size:cover;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 989px){ 
+#top #wrap_all .av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-special-heading-tag{
+font-size:22px;
+}
+.av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-subheading{
+font-size:13px;
+}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){ 
+#top #wrap_all .av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-special-heading-tag{
+font-size:22px;
+}
+.av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-subheading{
+font-size:13px;
+}
+}
+
+@media only screen and (max-width: 479px){ 
+#top #wrap_all .av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-special-heading-tag{
+font-size:22px;
+}
+.av-special-heading.av-1biinh3-46beb04fd2affc1fb0895c731ebb4fc6 .av-subheading{
+font-size:13px;
+}
+}

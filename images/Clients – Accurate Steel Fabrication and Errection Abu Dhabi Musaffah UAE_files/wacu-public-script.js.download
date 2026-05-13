@@ -1,0 +1,266 @@
+(function($) {
+    "use strict";
+
+    var wacuLoader = `<div class="wacu-spinner">
+						  <div class="double-bounce1 wacu-bg-color"></div>
+						  <div class="double-bounce2 wacu-bg-color"></div>
+						</div>`;
+
+    var adminAjaxURL = wacuPublicObj.ajax_url;
+    var buttonIcon = wacuPublicObj.button_icon;
+    var smartPopupInterval = wacuPublicObj.smart_popup_interval;
+    var smartPopupAfter = wacuPublicObj.smart_popup_after;
+
+    // wacuPopup Obj
+    var wacuPopup = {
+
+            // load all the view into popup body
+            loadView: function(wp_action, loadIn) {
+
+                jQuery('.wacu-popup__body').html(wacuLoader);
+
+                $.ajax({
+                        url: adminAjaxURL,
+                        type: 'POST',
+                        data: {
+                            'action': wp_action
+                        },
+                    })
+                    .done(function(response) {
+                        jQuery(loadIn).html(response);
+                    });
+            },
+
+            // Open and close popup
+            trigger: function() {
+
+                // when not active
+                if (jQuery('.wacu-popup').hasClass('wacu-popup--activate')) {
+                    jQuery('.wacu-popup').removeClass('wacu-popup--activate');
+                    jQuery('.wacu-footer .wacu-popup--trigger .wacu-trigger-icons').html('<i class="' + buttonIcon + '"></i>');
+
+                } else { // when active
+
+                    this.loadView('wacu_contact_media_ajax', '.wacu-popup__body');
+                    this.hideTriggerMessage();
+                    jQuery('.wacu-footer .wacu-popup--trigger .wacu-trigger-icons').html('<i class="wacu-fa wacu-fa-times"></i>');
+                    jQuery('.wacu-popup').addClass('wacu-popup--activate');
+
+                }
+
+            },
+
+            // load Email form
+            loadEmailForm: function() {
+                this.loadView('wacu_public_email_form_ajax', '.wacu-popup__body');
+            },
+
+            // load Schedule a call view
+            loadScheduleCall: function() {
+                this.loadView('wacu_public_schedule_a_call_ajax', '.wacu-popup__body');
+            },
+
+
+            showTriggerMessage: function() {
+                jQuery('.wacu-tirgger-message').addClass('wacu-tirgger-message--active');
+            },
+
+            hideTriggerMessage: function() {
+                jQuery('.wacu-tirgger-message').remove();
+            },
+
+
+        } // end of the wacuPopup Object
+
+
+    // GDPR error function
+    function wacuGDPRerror() {
+
+        if (wacuPublicObj.is_gdpr != true)
+            return false;
+
+        if (jQuery('#wacu-popup-gdpr__checkbox').is(':checked') == false) {
+
+            jQuery('#wacu-popup-gdpr').addClass('wacu-popup-gdpr--error');
+            setTimeout(function() {
+                    jQuery('#wacu-popup-gdpr').removeClass('wacu-popup-gdpr--error')
+                },
+                1000);
+
+            return true;
+
+        }
+
+    }
+
+
+    // wacu popup trigger
+    jQuery('.wacu-popup--trigger').on('click', function() {
+        wacuPopup.trigger();
+
+        var intervalTimeInSec = new Date(new Date().getTime() + smartPopupInterval * 1000);
+        Cookies.set('wacuSmartPopupInterval', smartPopupInterval, {
+            expires: intervalTimeInSec
+        });
+
+    });
+
+
+    // Email popup trigger
+    jQuery(document).on('click', '.wacu-popup-email--trigger', function() {
+        if (wacuGDPRerror() == true)
+            return;
+
+        wacuPopup.loadEmailForm();
+    });
+
+
+    // Schedule a call popup trigger
+    jQuery(document).on('click', '.wacu-popup-schedule-a-call--trigger', function() {
+        if (wacuGDPRerror() == true)
+            return;
+
+        wacuPopup.loadScheduleCall();
+    });
+
+
+    // Smart message auto display function
+    setTimeout(function() {
+
+        if (Cookies.get('wacuSmartPopupInterval') != null)
+            return;
+
+        wacuPopup.showTriggerMessage();
+
+    }, smartPopupAfter * 1000);
+
+
+    // Show/ Hide smart popup close button on hover
+    jQuery(".wacu-tirgger-message").on({
+        mouseenter: function() {
+            jQuery('.wacu-tirgger-message--close', this).addClass('wacu-tirgger-message--close-active');
+        },
+        mouseleave: function() {
+            setTimeout(function() {
+                jQuery('.wacu-tirgger-message .wacu-tirgger-message--close').removeClass('wacu-tirgger-message--close-active');
+            }, 5000);
+        }
+    });
+
+    // Smart message close function
+    jQuery('.wacu-tirgger-message--close').on('click', function() {
+        wacuPopup.hideTriggerMessage();
+
+        var intervalTimeInSec = new Date(new Date().getTime() + smartPopupInterval * 1000);
+        Cookies.set('wacuSmartPopupInterval', smartPopupInterval, {
+            expires: intervalTimeInSec
+        });
+
+    });
+
+
+    // Email send function
+    jQuery(document).on('submit', '#wacu-popup-email-form', function(event) {
+        event.preventDefault();
+
+        var wacu_email_name = jQuery('[name=wacu_email_name]');
+        var wacu_email_email = jQuery('[name=wacu_email_email]');
+        var wacu_email_message = jQuery('[name=wacu_email_message]');
+
+        wacu_email_name.removeClass('wacu-input-error');
+        wacu_email_email.removeClass('wacu-input-error');
+        wacu_email_message.removeClass('wacu-input-error');
+
+        if (wacu_email_name.val() == '' || wacu_email_email.val() == '' || wacu_email_message.val() == '') {
+
+            if (wacu_email_name.val() == '')
+                wacu_email_name.addClass('wacu-input-error');
+
+            if (wacu_email_email.val() == '')
+                wacu_email_email.addClass('wacu-input-error');
+
+            if (wacu_email_message.val() == '')
+                wacu_email_message.addClass('wacu-input-error');
+
+            return;
+
+        }
+
+        jQuery('.wacu-popup__body').html(wacuLoader);
+
+        $.ajax({
+                url: wacuPublicObj.ajax_url,
+                type: 'POST',
+                data: {
+                    'action': 'wacu_public_send_email_ajax',
+                    'name': wacu_email_name.val(),
+                    'email': wacu_email_email.val(),
+                    'message': wacu_email_message.val(),
+                },
+            })
+            .done(function(response) {
+                jQuery('.wacu-popup__body').html(response);
+            });
+
+
+    });
+
+
+    // Schedule a call submit function
+    jQuery(document).on('submit', '#wacu-schedule-a-call', function(event) {
+        event.preventDefault();
+
+        var wacu_schedule_name = jQuery('[name=wacu_schedule_name]');
+        var wacu_schedule_country = jQuery('[name=wacu_schedule_country]');
+        var wacu_schedule_callback_number = jQuery('[name=wacu_schedule_callback_number]');
+        var wacu_schedule_month = jQuery('[name=wacu_schedule_month]');
+        var wacu_schedule_date = jQuery('[name=wacu_schedule_date]');
+        var wacu_schedule_time = jQuery('[name=wacu_schedule_time]');
+        var wacu_schedule_message = jQuery('[name=wacu_schedule_callback_message]');
+
+        wacu_schedule_name.removeClass('wacu-input-error');
+        wacu_schedule_callback_number.removeClass('wacu-input-error');
+
+        if (wacu_schedule_name.val() == '' ||
+            wacu_schedule_callback_number.val() == '') {
+
+            if (wacu_schedule_name.val() == '')
+                wacu_schedule_name.addClass('wacu-input-error');
+
+            if (wacu_schedule_callback_number.val() == '')
+                wacu_schedule_callback_number.addClass('wacu-input-error');
+
+            return;
+
+        }
+
+        jQuery('.wacu-popup__body').html(wacuLoader);
+
+        $.ajax({
+                url: wacuPublicObj.ajax_url,
+                type: 'POST',
+                data: {
+                    'action': 'wacu_public_send_schedule_email_ajax',
+                    'name': wacu_schedule_name.val(),
+                    'country': wacu_schedule_country.val(),
+                    'callback_number': wacu_schedule_callback_number.val(),
+                    'month': wacu_schedule_month.val(),
+                    'date': wacu_schedule_date.val(),
+                    'time': wacu_schedule_time.val(),
+                    'message': wacu_schedule_message.val(),
+                },
+            })
+            .done(function(response) {
+                jQuery('.wacu-popup__body').html(response);
+            });
+
+    });
+
+
+    // If GDPR enable
+    jQuery(document).on('click', '.wacu-contact-media > li', function(event) {
+        if (wacuGDPRerror() == true)
+            event.preventDefault();
+    });
+
+})(jQuery);
