@@ -18,13 +18,32 @@ const hamburger = document.getElementById('hamburger');
 const mainNav   = document.getElementById('main-nav');
 if (hamburger && mainNav) {
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mainNav.classList.toggle('open');
+    const isOpen = hamburger.classList.contains('open');
+    if (!isOpen) {
+      // Show first, then add 'open' on next frame so transitions fire
+      mainNav.style.display = 'flex';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          hamburger.classList.add('open');
+          mainNav.classList.add('open');
+        });
+      });
+    } else {
+      hamburger.classList.remove('open');
+      mainNav.classList.remove('open');
+      // Hide after transition ends
+      mainNav.addEventListener('transitionend', () => {
+        if (!mainNav.classList.contains('open')) mainNav.style.display = '';
+      }, { once: true });
+    }
   });
   mainNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       mainNav.classList.remove('open');
+      mainNav.addEventListener('transitionend', () => {
+        if (!mainNav.classList.contains('open')) mainNav.style.display = '';
+      }, { once: true });
     });
   });
 }

@@ -171,12 +171,7 @@
     </div>
 
     <!-- Stats bar -->
-    <div class="hero-stats">
-      <div class="stat"><strong>7+</strong><span>Years of Excellence</span></div>
-      <div class="stat"><strong>ISO</strong><span>Certified Quality</span></div>
-      <div class="stat"><strong>50+</strong><span>Global Clients</span></div>
-      <div class="stat"><strong>24/7</strong><span>Technical Support</span></div>
-    </div>
+    
   </section>
 
 
@@ -232,6 +227,118 @@
           </div>
         </div>
       </div>
+  </section>
+
+  <!-- ===== STATS COUNTER ===== -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="7" width="20" height="14" rx="2" />
+            <path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2" />
+          </svg>
+        </div>
+        <div class="stat-value">
+          <strong class="counter-num" data-target="10">0</strong><em>+</em>
+        </div>
+        <span class="stat-label">Years of Expertise</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+        </div>
+        <div class="stat-value">
+          <strong class="counter-num" data-target="500">0</strong><em>+</em>
+        </div>
+        <span class="stat-label">Projects Delivered</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <div class="stat-value">
+          <strong class="counter-num" data-target="50">0</strong><em>+</em>
+        </div>
+        <span class="stat-label">Expert Technicians</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          </svg>
+        </div>
+        <div class="stat-value">
+          <strong class="counter-num" data-target="15000">0</strong><em>+</em>
+        </div>
+        <span class="stat-label">Sq. Ft. Facility</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO SHOWCASE ===== -->
+  <section class="video-showcase" id="video">
+    <div class="container">
+      <div class="video-showcase-inner">
+        <div class="video-showcase-content">
+          <span class="section-label">See Us In Action</span>
+          <h2>Precision Engineering<br><span>Inside Our Facility</span></h2>
+          <p>Step inside our 15,000 sq.ft Musaffah facility and witness the craftsmanship behind every project — from heavy steel fabrication and CNC machining to marine engineering and structural erection.</p>
+          <div class="video-highlights">
+            <div class="video-highlight">
+              <div class="vh-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <span>ISO 9001:2015 Certified Quality Processes</span>
+            </div>
+            <div class="video-highlight">
+              <div class="vh-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+                </svg>
+              </div>
+              <span>CNC Machining to ±0.01mm Tolerance</span>
+            </div>
+            <div class="video-highlight">
+              <div class="vh-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 17l3-3 4 4 4-4 3 3" />
+                </svg>
+              </div>
+              <span>Marine &amp; Offshore Engineering Expertise</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary">Request a Facility Tour &rarr;</a>
+        </div>
+        <div class="video-frame-wrap">
+          <div class="video-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+            Watch Our Story
+          </div>
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/_pcVF-SywB4"
+              title="Accurate Steel Fabrication – Facility & Capabilities"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ===== SERVICES ===== -->
@@ -901,6 +1008,37 @@
         }
       });
     });
+  </script>
+
+  <script>
+    // Counter animation — triggers on scroll into view
+    (function () {
+      var counters = document.querySelectorAll('.counter-num');
+      var started = false;
+      function animateCounters() {
+        counters.forEach(function (el) {
+          var target = +el.getAttribute('data-target');
+          var duration = 2000;
+          var step = target / (duration / 16);
+          var current = 0;
+          var timer = setInterval(function () {
+            current += step;
+            if (current >= target) { current = target; clearInterval(timer); }
+            el.textContent = Math.floor(current).toLocaleString();
+          }, 16);
+        });
+      }
+      var section = document.querySelector('.stats-section');
+      if (section && counters.length) {
+        var observer = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting && !started) {
+            started = true;
+            animateCounters();
+          }
+        }, { threshold: 0.25 });
+        observer.observe(section);
+      }
+    })();
   </script>
 </body>
 
