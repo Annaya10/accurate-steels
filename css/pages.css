@@ -1911,7 +1911,7 @@
 .pj-stat span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
 
 /* ── FEATURED CAROUSEL ── */
-.pj-featured { padding: 96px 0; background: var(--offwhite); }
+.pj-featured {     padding: 62px 0; background: var(--offwhite); }
 .pj-featured-owl { padding: 8px 0 56px; position: relative; }
 .pj-feat-card { border-radius: 16px; overflow: hidden; background: var(--white); box-shadow: 0 4px 24px rgba(13,27,42,0.08); margin: 8px 12px; transition: transform 0.35s ease, box-shadow 0.35s ease; }
 .pj-feat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(13,27,42,0.14); }
@@ -1946,7 +1946,7 @@
 .pj-filter-btn:hover, .pj-filter-btn.active { background: var(--brand-blue-d); color: var(--white); border-color: var(--brand-blue-d); }
 
 /* Masonry grid */
-.pj-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; gap: 16px; }
+.pj-grid {margin-bottom: 2%; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; gap: 16px;  }
 .pj-item { position: relative; border-radius: 14px; overflow: hidden; }
 .pj-item--wide { grid-column: span 2; }
 .pj-item--tall { grid-row: span 2; }
@@ -1988,4 +1988,115 @@
   .pj-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
   .pj-item--wide { grid-column: span 1; }
   .pj-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ============================================
+   PROJECTS PAGE — LIGHTGALLERY GRID
+   ============================================ */
+
+/* CTA section */
+.pj-cta {
+  padding: 80px 0;
+  background: var(--brand-blue-d);
+}
+.pj-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.pj-cta-text h2 { color: var(--white); margin-bottom: 12px; }
+.pj-cta-text p  { color: rgba(255,255,255,0.6); max-width: 480px; line-height: 1.7; }
+.pj-cta-actions { display: flex; gap: 14px; flex-shrink: 0; flex-wrap: wrap; }
+
+/* Masonry-style grid */
+.pj-lg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  gap: 16px;
+}
+
+/* Each item is an <a> tag */
+.pj-lg-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pj-lg-item--wide { grid-column: span 2; }
+.pj-lg-item--tall { grid-row: span 2; }
+
+.pj-lg-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+.pj-lg-item:hover img { transform: scale(1.07); }
+
+/* Overlay */
+.pj-lg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,27,42,0.88) 0%, rgba(13,27,42,0.1) 55%, transparent 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.pj-lg-item:hover .pj-lg-overlay { opacity: 1; }
+
+.pj-lg-cat {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-teal-l, #2aaaa8);
+  margin-bottom: 6px;
+  display: block;
+}
+.pj-lg-overlay h4 {
+  color: var(--white);
+  font-size: 0.95rem;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+.pj-lg-zoom {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Hidden items (filtered out) */
+.pj-lg-item[style*="display: none"] { display: none !important; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .pj-lg-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; }
+  .pj-lg-item--wide { grid-column: span 2; }
+  .pj-lg-item--tall { grid-row: span 2; }
+  .pj-cta-inner { flex-direction: column; text-align: center; }
+  .pj-cta-actions { justify-content: center; }
+}
+
+@media (max-width: 640px) {
+  .pj-lg-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 180px; gap: 10px; }
+  .pj-lg-item--wide { grid-column: span 2; }
+  .pj-lg-item--tall { grid-row: span 1; }
+  .pj-lg-overlay { opacity: 1; }
+}
+
+@media (max-width: 420px) {
+  .pj-lg-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+  .pj-lg-item--wide,
+  .pj-lg-item--tall { grid-column: span 1; grid-row: span 1; }
 }
