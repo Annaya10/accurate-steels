@@ -20,7 +20,6 @@ if (hamburger && mainNav) {
   hamburger.addEventListener('click', () => {
     const isOpen = hamburger.classList.contains('open');
     if (!isOpen) {
-      // Show first, then add 'open' on next frame so transitions fire
       mainNav.style.display = 'flex';
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -31,7 +30,6 @@ if (hamburger && mainNav) {
     } else {
       hamburger.classList.remove('open');
       mainNav.classList.remove('open');
-      // Hide after transition ends
       mainNav.addEventListener('transitionend', () => {
         if (!mainNav.classList.contains('open')) mainNav.style.display = '';
       }, { once: true });
@@ -44,6 +42,17 @@ if (hamburger && mainNav) {
       mainNav.addEventListener('transitionend', () => {
         if (!mainNav.classList.contains('open')) mainNav.style.display = '';
       }, { once: true });
+    });
+  });
+
+  // Mobile: toggle dropdown on tap of parent link
+  mainNav.querySelectorAll('.nav-has-dropdown > a').forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = link.closest('.nav-has-dropdown');
+        parent.classList.toggle('open');
+      }
     });
   });
 }

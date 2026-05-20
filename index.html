@@ -32,7 +32,29 @@
       <nav class="main-nav" id="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
+        <div class="nav-has-dropdown">
+          <a href="services.html">Services<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="nav-dropdown">
+            <a href="services.html#fabrication" class="nav-dropdown-item">
+              <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg></span>
+              <span class="nav-dd-text"><strong>Steel Fabrication</strong><span>Structural & heavy steelwork</span></span>
+            </a>
+            <a href="services.html#marine" class="nav-dropdown-item">
+              <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg></span>
+              <span class="nav-dd-text"><strong>Marine Engineering</strong><span>Ship repair & offshore</span></span>
+            </a>
+            <a href="services.html#cnc" class="nav-dropdown-item">
+              <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>
+              <span class="nav-dd-text"><strong>CNC Machining</strong><span>Precision ±0.01mm</span></span>
+            </a>
+            <a href="services.html#maintenance" class="nav-dropdown-item">
+              <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+              <span class="nav-dd-text"><strong>Maintenance</strong><span>AMC & emergency services</span></span>
+            </a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="services.html" class="nav-dropdown-all">View All Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
         <a href="projects.html">Projects</a>
         <a href="clients.html">Clients</a>
         <a href="contact.html">Contact</a>
