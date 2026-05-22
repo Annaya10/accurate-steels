@@ -1,0 +1,225 @@
+/* ============================================================
+   SERVICES PAGE — services-page.css
+   ============================================================ */
+
+/* ── SERVICE SECTION ─────────────────────────────────────── */
+.sp-service {
+  padding: 100px 0;
+  background: var(--white);
+}
+.sp-service--alt {
+  background: var(--offwhite);
+}
+
+.sp-service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.sp-service-grid--reverse {
+  direction: rtl;
+}
+.sp-service-grid--reverse > * {
+  direction: ltr;
+}
+
+/* Content side */
+.sp-service-content .section-label {
+  color: var(--brand-teal);
+  margin-bottom: 10px;
+}
+.sp-service-content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--charcoal);
+  margin-bottom: 0;
+  line-height: 1.15;
+}
+.sp-divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-teal), var(--brand-blue));
+  border-radius: 2px;
+  margin: 18px 0 24px;
+}
+.sp-service-content p {
+  color: var(--steel);
+  line-height: 1.8;
+  font-size: 0.97rem;
+  margin-bottom: 16px;
+}
+
+/* Feature list */
+.sp-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 28px 0 36px;
+}
+.sp-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(26,79,122,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.22s ease, background 0.22s ease;
+}
+.sp-feature-list li:hover {
+  border-color: var(--brand-teal);
+  background: rgba(42,170,138,0.05);
+}
+.sp-feature-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--brand-teal);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.sp-feature-icon svg {
+  width: 14px;
+  height: 14px;
+}
+.sp-feature-list li div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sp-feature-list li strong {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+.sp-feature-list li span {
+  font-size: 0.8rem;
+  color: var(--steel);
+  line-height: 1.5;
+}
+
+/* Image side */
+.sp-service-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 260px 180px;
+  gap: 12px;
+}
+.sp-img-main {
+  grid-column: 1 / -1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.sp-img-secondary {
+  border-radius: 14px;
+  overflow: hidden;
+  grid-column: 1 / -1;
+}
+.sp-service-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.sp-service-images img:hover {
+  transform: scale(1.04);
+}
+
+/* ── WHY CHOOSE US ───────────────────────────────────────── */
+.sp-why {
+  padding: 100px 0;
+  background: var(--brand-blue-d);
+}
+.sp-why .section-header .section-label {
+  color: var(--brand-teal-l);
+}
+.sp-why .section-header h2 {
+  color: var(--white);
+}
+.sp-why .section-header p {
+  color: rgba(255,255,255,0.55);
+}
+
+.sp-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.sp-why-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.sp-why-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(42,170,138,0.4);
+  transform: translateY(-4px);
+}
+.sp-why-card--featured {
+  background: rgba(42,170,138,0.12);
+  border-color: rgba(42,170,138,0.35);
+}
+.sp-why-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(42,170,138,0.15);
+  color: var(--brand-teal-l);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.sp-why-icon svg {
+  width: 26px;
+  height: 26px;
+}
+.sp-why-card h4 {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.sp-why-card p {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .sp-service-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .sp-service-grid--reverse {
+    direction: ltr;
+  }
+  .sp-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sp-service {
+    padding: 64px 0;
+  }
+  .sp-why {
+    padding: 64px 0;
+  }
+  .sp-why-grid {
+    grid-template-columns: 1fr;
+  }
+  .sp-service-images {
+    grid-template-rows: 220px 140px;
+  }
+}

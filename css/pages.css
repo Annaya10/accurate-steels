@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    ACCURATE STEEL FABRICATION — PAGES CSS
    Shared styles for About, Services, Projects, Contact
    ============================================ */
@@ -53,7 +53,7 @@
 
 /* Journey Section */
 .journey {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--white);
 }
 .journey-grid {
@@ -126,7 +126,7 @@
 
 /* Timeline */
 .timeline {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--offwhite);
 }
 .timeline-track {
@@ -192,7 +192,7 @@
 
 /* Vision / Mission */
 .vision-mission {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--brand-blue-d);
 }
 .vm-grid {
@@ -256,7 +256,7 @@
 
 /* Quality / Certifications */
 .quality {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--white);
 }
 .quality-grid {
@@ -313,7 +313,7 @@
 
 /* Leadership Team */
 .leadership {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--offwhite);
 }
 .team-grid {
@@ -372,7 +372,7 @@
 
 /* Infrastructure Stats */
 .infra-stats {
-  padding: 72px 0;
+  padding: 48px 0;
   background: var(--charcoal-d);
 }
 .infra-stats-grid {
@@ -409,7 +409,7 @@
    SERVICES PAGE
    ============================================ */
 .service-detail {
-  padding: 96px 0;
+  padding: 56px 0;
 }
 .service-detail:nth-child(even) { background: var(--offwhite); }
 .service-detail:nth-child(odd)  { background: var(--white); }
@@ -467,7 +467,7 @@
 
 /* CNC Capabilities Table on Services page */
 .service-table-section {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--brand-blue-d);
 }
 .service-table-section .section-header h2 { color: var(--white); }
@@ -603,7 +603,7 @@
 
 /* Stats banner */
 .projects-stats {
-  padding: 64px 0;
+  padding: 48px 0;
   background: var(--navy);
 }
 .projects-stats-grid {
@@ -632,7 +632,7 @@
    CONTACT PAGE
    ============================================ */
 .contact-page {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--offwhite);
 }
 .contact-page-grid {
@@ -918,7 +918,7 @@
 
 /* Infrastructure Grid */
 .infrastructure {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--offwhite);
 }
 .infra-grid {
@@ -1287,7 +1287,7 @@
 
 /* Clients logos section */
 .clients-logos-section {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--offwhite);
 }
 
@@ -1383,7 +1383,7 @@
 
 /* Industries section */
 .industries-section {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--white);
 }
 .industries-grid {
@@ -1426,7 +1426,7 @@
 
 /* Testimonials section */
 .testimonials-section {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--offwhite);
 }
 .testimonials-full-grid {
@@ -1476,7 +1476,7 @@
 
 /* Certifications section */
 .certs-section {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--navy);
 }
 .certs-section .section-header h2 { color: var(--white); }
@@ -1510,7 +1510,7 @@
 
 /* Clients CTA */
 .clients-cta {
-  padding: 80px 0;
+  padding: 56px 0;
   background: var(--charcoal-d);
 }
 .clients-cta-inner {
@@ -1562,7 +1562,7 @@
    CEO SECTION
    ============================================ */
 .ceo-section {
-  padding: 96px 0;
+  padding: 56px 0;
   background: var(--white);
 }
 .ceo-grid {
@@ -1940,7 +1940,7 @@
 .pj-featured-owl .owl-dot.active span { background: var(--brand-teal) !important; width: 26px !important; border-radius: 4px !important; }
 
 /* ── GALLERY SECTION ── */
-.pj-gallery-section { padding: 96px 0; background: var(--white); }
+.pj-gallery-section { padding: 56px 0; background: var(--white); }
 .pj-filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
 .pj-filter-btn { padding: 9px 22px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: var(--steel); border: 1.5px solid var(--border); background: var(--white); cursor: pointer; transition: all 0.25s ease; }
 .pj-filter-btn:hover, .pj-filter-btn.active { background: var(--brand-blue-d); color: var(--white); border-color: var(--brand-blue-d); }
@@ -1961,7 +1961,7 @@
 .pj-item:hover .pj-item__zoom { background: var(--brand-teal); border-color: var(--brand-teal); }
 
 /* ── CTA ── */
-.pj-cta { padding: 80px 0; background: linear-gradient(135deg, var(--brand-blue-d) 0%, #0a1628 50%, #0d2137 100%); position: relative; overflow: hidden; }
+.pj-cta { padding: 56px 0; background: linear-gradient(135deg, var(--brand-blue-d) 0%, #0a1628 50%, #0d2137 100%); position: relative; overflow: hidden; }
 .pj-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,137,123,0.1) 0%, transparent 70%); pointer-events: none; }
 .pj-cta-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .pj-cta-text h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 10px 0 12px; }
@@ -1997,7 +1997,7 @@
 
 /* CTA section */
 .pj-cta {
-  padding: 80px 0;
+  padding: 56px 0;
   background: var(--brand-blue-d);
 }
 .pj-cta-inner {
