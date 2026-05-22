@@ -2529,7 +2529,7 @@ h4 { font-size: 1rem; font-weight: 600; }
   font-size: 0.95rem;
   color: var(--steel);
   line-height: 1.8;
-  margin-bottom: 32px;
+  margin-bottom: 15px;
 }
 .video-highlights {
   display: flex;
