@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,9 +6,267 @@
   <title>Services | Accurate Steel Fabrication EST</title>
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/pages.css" />
-  <link rel="stylesheet" href="css/services.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    /* ── SERVICES PAGE SPECIFIC ── */
+    .srv-section { padding: 64px 0; background: var(--offwhite); }
+    .srv-section:nth-child(even) { background: var(--white); }
+
+    /* Services card grid */
+    .srv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .srv-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .srv-grid { grid-template-columns: 1fr; } }
+
+    .srv-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .srv-card:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(13,27,42,0.13); }
+
+    .srv-card__img {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+    }
+    .srv-card__img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .srv-card:hover .srv-card__img img { transform: scale(1.07); }
+
+    .srv-card__badge {
+      position: absolute;
+      top: 14px; left: 14px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--brand-teal);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .srv-card__body {
+      padding: 22px 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .srv-card__icon {
+      width: 44px; height: 44px;
+      background: rgba(26,79,122,0.08);
+      color: var(--brand-blue);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      transition: background 0.25s, color 0.25s;
+    }
+    .srv-card:hover .srv-card__icon { background: var(--brand-teal); color: #fff; }
+    .srv-card__icon svg { width: 20px; height: 20px; }
+
+    .srv-card__title { font-size: 1.05rem; font-weight: 700; color: var(--brand-blue-d); margin-bottom: 8px; }
+    .srv-card__desc { font-size: 0.84rem; color: var(--steel); line-height: 1.7; margin-bottom: 16px; flex: 1; }
+
+    .srv-card__specs { display: flex; flex-direction: column; gap: 5px; margin-bottom: 18px; }
+    .srv-spec {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.76rem; color: var(--steel);
+    }
+    .srv-spec svg { width: 12px; height: 12px; color: var(--brand-teal); flex-shrink: 0; }
+
+    .srv-card__cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--brand-teal);
+      margin-top: auto;
+      transition: gap 0.2s;
+    }
+    .srv-card:hover .srv-card__cta { gap: 10px; }
+    .srv-card__cta svg { width: 13px; height: 13px; }
+
+    /* ── WHY US ── */
+    .why-us-section { padding: 64px 0; background: var(--brand-blue-d); }
+    .why-us-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .why-us-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .why-us-grid { grid-template-columns: 1fr; } }
+
+    .why-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 28px 22px;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(42,170,138,0.35); }
+    .why-card__icon {
+      width: 48px; height: 48px;
+      background: rgba(42,170,138,0.12);
+      color: var(--brand-teal-l);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .why-card__icon svg { width: 22px; height: 22px; }
+    .why-card h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ── CAPABILITIES STRIP ── */
+    .caps-strip { padding: 48px 0; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .caps-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    @media (max-width: 768px) { .caps-strip-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 480px) { .caps-strip-grid { grid-template-columns: 1fr; } }
+
+    .cap-item {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .cap-item:last-child { border-right: none; }
+    @media (max-width: 768px) {
+      .cap-item:nth-child(2) { border-right: none; }
+      .cap-item:nth-child(1), .cap-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+    }
+    .cap-item strong {
+      display: block;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--brand-blue);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .cap-item strong em { font-style: normal; color: var(--brand-teal); }
+    .cap-item span { font-size: 0.75rem; color: var(--steel); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ── INDUSTRIES ── */
+    .industries-section { padding: 64px 0; background: var(--offwhite); }
+    .ind-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .ind-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .ind-grid { grid-template-columns: 1fr; } }
+
+    .ind-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .ind-card:hover { border-color: var(--brand-teal); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .ind-card__icon {
+      width: 44px; height: 44px;
+      background: rgba(26,79,122,0.07);
+      color: var(--brand-blue);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .ind-card__icon svg { width: 20px; height: 20px; }
+    .ind-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .ind-card p { font-size: 0.82rem; color: var(--steel); line-height: 1.6; }
+
+    /* ── SERVICE DETAIL BLOCKS ── */
+    .svc-detail-block { padding: 64px 0; }
+    .svc-detail-block:nth-child(odd) { background: var(--white); }
+    .svc-detail-block:nth-child(even) { background: var(--offwhite); }
+
+    .svc-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .svc-detail-grid.reverse { direction: rtl; }
+    .svc-detail-grid.reverse > * { direction: ltr; }
+    @media (max-width: 900px) {
+      .svc-detail-grid { grid-template-columns: 1fr; gap: 36px; }
+      .svc-detail-grid.reverse { direction: ltr; }
+    }
+
+    .svc-detail-img {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .svc-detail-img img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .svc-detail-img-badge {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      background: rgba(13,27,42,0.82);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 10px 16px;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .svc-detail-img-badge span { color: var(--brand-teal-l); display: block; font-size: 0.68rem; font-weight: 400; margin-top: 2px; }
+
+    .svc-detail-text .section-label { display: block; margin-bottom: 8px; }
+    .svc-detail-text h2 { margin-bottom: 14px; }
+    .svc-detail-text > p { color: var(--steel); line-height: 1.8; margin-bottom: 24px; font-size: 0.93rem; }
+
+    .svc-feat-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .svc-feat-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px;
+      background: var(--offwhite);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+    .svc-feat-item:hover { border-color: var(--brand-teal); }
+    .svc-feat-item__icon {
+      width: 34px; height: 34px;
+      background: rgba(26,79,122,0.08);
+      color: var(--brand-teal);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .svc-feat-item__icon svg { width: 16px; height: 16px; }
+    .svc-feat-item h5 { font-size: 0.87rem; font-weight: 700; margin-bottom: 3px; color: var(--charcoal); }
+    .svc-feat-item p { font-size: 0.78rem; color: var(--steel); line-height: 1.5; }
+
+    /* ── CTA SECTION ── */
+    .svc-cta {
+      padding: 64px 0;
+      background: linear-gradient(135deg, var(--brand-blue-d) 0%, #0a1628 50%, #0d2137 100%);
+      text-align: center;
+    }
+    .svc-cta h2 { color: #fff; margin-bottom: 14px; }
+    .svc-cta p { color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+    .svc-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  </style>
 </head>
 <body>
 
@@ -28,24 +286,24 @@
       <div class="nav-has-dropdown">
         <a href="services.html" class="active">Services<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="nav-dropdown">
-          <a href="services.html#fabrication" class="nav-dropdown-item">
+          <a href="#fabrication" class="nav-dropdown-item">
             <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg></span>
-            <span class="nav-dd-text"><strong>Steel Fabrication</strong><span>Structural & heavy steelwork</span></span>
+            <span class="nav-dd-text"><strong>Steel Fabrication</strong><span>Structural &amp; heavy steelwork</span></span>
           </a>
-          <a href="services.html#marine" class="nav-dropdown-item">
+          <a href="#marine" class="nav-dropdown-item">
             <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg></span>
-            <span class="nav-dd-text"><strong>Marine Engineering</strong><span>Ship repair & offshore</span></span>
+            <span class="nav-dd-text"><strong>Marine Engineering</strong><span>Ship repair &amp; offshore</span></span>
           </a>
-          <a href="services.html#cnc" class="nav-dropdown-item">
+          <a href="#cnc" class="nav-dropdown-item">
             <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>
             <span class="nav-dd-text"><strong>CNC Machining</strong><span>Precision ±0.01mm</span></span>
           </a>
-          <a href="services.html#maintenance" class="nav-dropdown-item">
+          <a href="#maintenance" class="nav-dropdown-item">
             <span class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-            <span class="nav-dd-text"><strong>Maintenance</strong><span>AMC & emergency services</span></span>
+            <span class="nav-dd-text"><strong>Maintenance</strong><span>AMC &amp; emergency services</span></span>
           </a>
           <div class="nav-dropdown-divider"></div>
-          <a href="services.html" class="nav-dropdown-all">View All Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="service-detail.html" class="nav-dropdown-all">View All Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
       <a href="projects.html">Projects</a>
@@ -61,7 +319,7 @@
 
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero page-hero--img">
-  <img src="images/jarmoluk-welding-2819147.jpg" alt="Steel fabrication welding operations" class="page-hero-bg" loading="eager" />
+  <img src="images/jarmoluk-welding-2819147.jpg" alt="Steel fabrication services" class="page-hero-bg" loading="eager" />
   <div class="page-hero-overlay"></div>
   <div class="container page-hero-content">
     <div class="breadcrumb">
@@ -69,463 +327,449 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
       <span>Services</span>
     </div>
-    <span class="section-label">Engineering Precision. Fabricating Excellence.</span>
-    <h1>Specialized Engineering<br><span style="color:var(--brand-teal-l)">Services</span></h1>
-    <p>Heavy steel fabrication, precision CNC machining, marine engineering, and industrial maintenance — all under one roof in Musaffah, Abu Dhabi.</p>
-    <div class="svc-hero-badges">
-      <span class="svc-hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ISO 9001:2015</span>
-      <span class="svc-hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24/7 Operations</span>
-      <span class="svc-hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>±0.01mm Tolerance</span>
-    </div>
+    <span class="section-label">What We Do</span>
+    <h1>Engineering Services<br><span style="color:var(--brand-teal-l)">Built for Industry</span></h1>
+    <p>From heavy steel fabrication and marine engineering to precision CNC machining and industrial maintenance — we are your single-source partner in the UAE.</p>
   </div>
 </section>
 
-<!-- ===== STICKY SERVICE NAV ===== -->
-<div class="svc-sticky-nav" id="svc-sticky-nav">
+<!-- ===== CAPABILITIES STRIP ===== -->
+<div class="caps-strip">
   <div class="container">
-    <nav class="svc-nav-links">
-      <a href="#fabrication" class="svc-nav-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg>
-        Steel Fabrication
-      </a>
-      <a href="#marine" class="svc-nav-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg>
-        Marine Engineering
-      </a>
-      <a href="#cnc" class="svc-nav-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-        CNC Machining
-      </a>
-      <a href="#maintenance" class="svc-nav-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        Maintenance
-      </a>
-    </nav>
+    <div class="caps-strip-grid">
+      <div class="cap-item">
+        <strong>10<em>+</em></strong>
+        <span>Years of Expertise</span>
+      </div>
+      <div class="cap-item">
+        <strong>500<em>+</em></strong>
+        <span>Projects Delivered</span>
+      </div>
+      <div class="cap-item">
+        <strong>50<em>+</em></strong>
+        <span>Expert Technicians</span>
+      </div>
+      <div class="cap-item">
+        <strong>24<em>/7</em></strong>
+        <span>Emergency Support</span>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ===== SERVICES OVERVIEW CARDS ===== -->
-<section class="svc-overview">
+<!-- ===== SERVICES CARD GRID ===== -->
+<section class="srv-section" id="services-grid">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">What We Do</span>
-      <h2>Four Core Engineering Disciplines</h2>
-      <p>From structural steel to precision machining — every service backed by certified expertise and industrial-grade equipment.</p>
+      <span class="section-label">Core Services</span>
+      <h2>Our Engineering Capabilities</h2>
+      <p>Precision-driven solutions engineered for the demands of modern industry across the UAE and GCC.</p>
+      <div class="section-divider"></div>
     </div>
-    <div class="svc-overview-grid">
+    <div class="srv-grid">
 
-      <a href="#fabrication" class="svc-ov-card">
-        <div class="svc-ov-num">01</div>
-        <div class="svc-ov-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg>
+      <!-- Card 1 -->
+      <a href="#fabrication" class="srv-card">
+        <div class="srv-card__img">
+          <img src="images/jarmoluk-welding-2819147.jpg" alt="Heavy Steel Fabrication" loading="lazy">
+          <span class="srv-card__badge">Structural</span>
         </div>
-        <h3>Heavy Steel Fabrication</h3>
-        <p>Structural steelwork, warehouses, mezzanines, and architectural metalwork to international codes.</p>
-        <div class="svc-ov-tags">
-          <span>AWS D1.1</span><span>AISC</span><span>ASME IX</span>
+        <div class="srv-card__body">
+          <div class="srv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg>
+          </div>
+          <div class="srv-card__title">Heavy Steel Fabrication</div>
+          <div class="srv-card__desc">Custom structural steelwork for industrial, commercial, and infrastructure projects. From shop drawings to on-site erection.</div>
+          <div class="srv-card__specs">
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Max plate thickness: 100mm</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> AWS D1.1 / ASME IX certified</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 20-ton EOT crane capacity</div>
+          </div>
+          <span class="srv-card__cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
-        <span class="svc-ov-cta">Explore Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
-      <a href="#marine" class="svc-ov-card">
-        <div class="svc-ov-num">02</div>
-        <div class="svc-ov-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg>
+      <!-- Card 2 -->
+      <a href="#marine" class="srv-card">
+        <div class="srv-card__img">
+          <img src="images/beautiful-moments-marine-4019745.jpg" alt="Marine Engineering" loading="lazy">
+          <span class="srv-card__badge">Marine</span>
         </div>
-        <h3>Marine Engineering</h3>
-        <p>24/7 hull repairs, marine piping, propeller services, and offshore structural fabrication.</p>
-        <div class="svc-ov-tags">
-          <span>24/7</span><span>Hull Repair</span><span>Offshore</span>
+        <div class="srv-card__body">
+          <div class="srv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg>
+          </div>
+          <div class="srv-card__title">Marine Engineering &amp; Ship Repair</div>
+          <div class="srv-card__desc">24/7 hull repairs, marine piping, propeller &amp; shaft services for commercial vessels and offshore platforms across UAE ports.</div>
+          <div class="srv-card__specs">
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 24/7 emergency response</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> CSWIP certified welders</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Response time &lt; 4 hours</div>
+          </div>
+          <span class="srv-card__cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
-        <span class="svc-ov-cta">Explore Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
-      <a href="#cnc" class="svc-ov-card">
-        <div class="svc-ov-num">03</div>
-        <div class="svc-ov-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      <!-- Card 3 -->
+      <a href="#cnc" class="srv-card">
+        <div class="srv-card__img">
+          <img src="images/blickpixel-milling-444493.jpg" alt="CNC Machining" loading="lazy">
+          <span class="srv-card__badge">Precision</span>
         </div>
-        <h3>CNC Machining</h3>
-        <p>3-axis & 5-axis VMC milling, CNC turning, and CAD/CAM design to ±0.01mm tolerance.</p>
-        <div class="svc-ov-tags">
-          <span>±0.01mm</span><span>5-Axis</span><span>CAD/CAM</span>
+        <div class="srv-card__body">
+          <div class="srv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <div class="srv-card__title">CNC Machining &amp; Precision Manufacturing</div>
+          <div class="srv-card__desc">3-axis and 5-axis VMC milling, CNC turning, and CAD/CAM design integration with tolerances down to ±0.01mm.</div>
+          <div class="srv-card__specs">
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Tolerance: ±0.01mm</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Turning up to Ø500mm</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> CMM dimensional inspection</div>
+          </div>
+          <span class="srv-card__cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
-        <span class="svc-ov-cta">Explore Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
-      <a href="#maintenance" class="svc-ov-card">
-        <div class="svc-ov-num">04</div>
-        <div class="svc-ov-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      <!-- Card 4 -->
+      <a href="#maintenance" class="srv-card">
+        <div class="srv-card__img">
+          <img src="images/652234-factory-1140760.jpg" alt="Industrial Maintenance" loading="lazy">
+          <span class="srv-card__badge">Maintenance</span>
         </div>
-        <h3>Maintenance Services</h3>
-        <p>Annual maintenance contracts, hydraulic services, painting, blasting, and emergency response.</p>
-        <div class="svc-ov-tags">
-          <span>AMC</span><span>Hydraulics</span><span>Painting</span>
+        <div class="srv-card__body">
+          <div class="srv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="srv-card__title">Industrial Maintenance &amp; AMC</div>
+          <div class="srv-card__desc">Annual maintenance contracts and emergency breakdown services — hydraulics, painting, blasting, and electrical for industrial facilities.</div>
+          <div class="srv-card__specs">
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> AMC / Spot / Emergency</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> SA 2.5 blasting standard</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Hydraulic up to 700 bar</div>
+          </div>
+          <span class="srv-card__cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
-        <span class="svc-ov-cta">Explore Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
+      <!-- Card 5 -->
+      <a href="#erection" class="srv-card">
+        <div class="srv-card__img">
+          <img src="images/artisticoperations-construction-6475766.jpg" alt="Steel Erection" loading="lazy">
+          <span class="srv-card__badge">Erection</span>
+        </div>
+        <div class="srv-card__body">
+          <div class="srv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <div class="srv-card__title">Structural Erection &amp; Installation</div>
+          <div class="srv-card__desc">On-site structural steel erection, mezzanine floors, elevated platforms, and access walkways for industrial and commercial facilities.</div>
+          <div class="srv-card__specs">
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full lifecycle management</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> AISC compliant</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> NDT inspection available</div>
+          </div>
+          <span class="srv-card__cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Card 6 -->
+      <a href="#painting" class="srv-card">
+        <div class="srv-card__img">
+          <img src="images/greenlightvision_ch-welding-5497617.jpg" alt="Blasting and Painting" loading="lazy">
+          <span class="srv-card__badge">Coating</span>
+        </div>
+        <div class="srv-card__body">
+          <div class="srv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="srv-card__title">Blasting &amp; Industrial Painting</div>
+          <div class="srv-card__desc">SA 2.5 abrasive blasting and marine-grade epoxy / polyurethane coating systems for steel structures, vessels, and industrial equipment.</div>
+          <div class="srv-card__specs">
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> SA 2.5 blast standard</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> NACE certified inspectors</div>
+            <div class="srv-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> DFT spec compliance</div>
+          </div>
+          <span class="srv-card__cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="service-detail.html" class="btn btn-primary btn-lg">View Full Service Details &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ===== 01 HEAVY STEEL FABRICATION ===== -->
-<section class="svc-detail-section" id="fabrication">
-  <div class="svc-detail-inner">
-    <div class="container">
-      <div class="svc-detail-layout">
-        <div class="svc-detail-content">
-          <div class="svc-detail-label">
-            <span class="svc-num-badge">01</span>
-            <span class="section-label">Heavy Steel Fabrication</span>
-          </div>
-          <h2>Structural Steel Fabrication &amp; Erection</h2>
-          <div class="section-divider"></div>
-          <p class="svc-detail-lead">From industrial warehouses to high-rise skeletal structures, our AWS-certified welders deliver precision steelwork with full compliance to international structural codes.</p>
-          <div class="svc-feature-list">
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg></div>
-              <div><h5>Heavy Structural Steelwork</h5><p>Columns, beams, trusses, and portal frames for industrial and commercial structures.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-              <div><h5>Warehouses &amp; Factory Sheds</h5><p>Pre-engineered and custom steel buildings for industrial and logistics applications.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg></div>
-              <div><h5>Architectural Stainless Steel</h5><p>Precision-finished stainless steel cladding, facades, and decorative structural elements.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-              <div><h5>Mezzanine Floors &amp; Platforms</h5><p>Structural steel mezzanines, access platforms, and elevated walkways for industrial facilities.</p></div>
-            </div>
-          </div>
-          <div class="svc-detail-actions">
-            <a href="service-detail.html?service=fabrication" class="btn btn-primary">View Full Details &rarr;</a>
-            <a href="contact.html" class="btn btn-outline-dark">Request a Quote</a>
-          </div>
-        </div>
-        <div class="svc-detail-media">
-          <div class="svc-media-main">
-            <img src="images/jarmoluk-welding-2819147.jpg" alt="Steel Fabrication" loading="lazy" />
-            <div class="svc-media-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span>AWS D1.1 Certified</span>
-            </div>
-          </div>
-          <div class="svc-media-grid">
-            <img src="images/gabrielroma-weld-2378668.jpg" alt="Welding Operations" loading="lazy" />
-            <img src="images/artisticoperations-construction-6475766.jpg" alt="Steel Erection" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 02 MARINE ENGINEERING ===== -->
-<section class="svc-detail-section svc-detail-section--alt" id="marine">
-  <div class="svc-detail-inner">
-    <div class="container">
-      <div class="svc-detail-layout svc-detail-layout--reverse">
-        <div class="svc-detail-media">
-          <div class="svc-media-main">
-            <img src="images/beautiful-moments-marine-4019745.jpg" alt="Marine Engineering" loading="lazy" />
-            <div class="svc-media-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>24/7 Emergency Response</span>
-            </div>
-          </div>
-          <div class="svc-media-grid">
-            <img src="images/652234-factory-1140760.jpg" alt="Marine Repair" loading="lazy" />
-            <img src="images/blickpixel-milling-444493.jpg" alt="Marine Components" loading="lazy" />
-          </div>
-        </div>
-        <div class="svc-detail-content">
-          <div class="svc-detail-label">
-            <span class="svc-num-badge svc-num-badge--teal">02</span>
-            <span class="section-label">Marine Engineering</span>
-          </div>
-          <h2>Marine Engineering &amp; Ship Repair</h2>
-          <div class="section-divider"></div>
-          <p class="svc-detail-lead">Serving the maritime hubs of Abu Dhabi and Dubai with 24/7 emergency hull repairs, piping systems, and mechanical services for commercial vessels and offshore platforms.</p>
-          <div class="svc-feature-list">
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l3-3 4 4 4-4 3 3"/></svg></div>
-              <div><h5>Hull Integrity &amp; Structural Repair</h5><p>Cut-and-weld hull repairs, structural reinforcement, and corrosion remediation to class standards.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
-              <div><h5>Propeller &amp; Shaft Services</h5><p>Propeller removal, straightening, balancing, and shaft alignment for all vessel types.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-              <div><h5>Hydraulic Systems</h5><p>Marine hydraulic cylinder repair, hose replacement, and system pressure testing.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <div><h5>Blasting &amp; Marine Painting</h5><p>SA 2.5 abrasive blasting and marine-grade epoxy/anti-corrosion coating systems.</p></div>
-            </div>
-          </div>
-          <div class="svc-detail-actions">
-            <a href="service-detail.html?service=marine" class="btn btn-primary">View Full Details &rarr;</a>
-            <a href="contact.html" class="btn btn-outline-dark">Request a Quote</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 03 CNC MACHINING ===== -->
-<section class="svc-detail-section" id="cnc">
-  <div class="svc-detail-inner">
-    <div class="container">
-      <div class="svc-detail-layout">
-        <div class="svc-detail-content">
-          <div class="svc-detail-label">
-            <span class="svc-num-badge">03</span>
-            <span class="section-label">CNC Machining</span>
-          </div>
-          <h2>Industrial Machining &amp; CAD/CAM</h2>
-          <div class="section-divider"></div>
-          <p class="svc-detail-lead">Advanced CNC processing with tolerances down to ±0.01mm. Our Musaffah machining center operates 3-axis and 5-axis VMCs for the most demanding precision requirements.</p>
-          <div class="svc-precision-banner">
-            <div class="spb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
-            <div><strong>±0.01mm Precision Tolerance</strong><p>Industry-leading accuracy for aerospace-grade components, oilfield valves, and high-precision industrial parts.</p></div>
-            <span class="spb-badge">ISO 9001:2015</span>
-          </div>
-          <div class="svc-feature-list">
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
-              <div><h5>CNC Milling &amp; Turning</h5><p>Multi-axis milling and turning for complex geometries with tolerances up to ±0.01mm.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-              <div><h5>CAD/CAM Design Services</h5><p>Design-to-manufacture integration, optimizing CNC simulation for all parameters.</p></div>
-            </div>
-            <div class="svc-feat-item">
-              <div class="svc-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-              <div><h5>Component R&amp;D &amp; Prototyping</h5><p>Developing and testing prototype industrial parts for complex mechanical applications.</p></div>
-            </div>
-          </div>
-          <div class="svc-detail-actions">
-            <a href="service-detail.html?service=cnc" class="btn btn-primary">View Full Details &rarr;</a>
-            <a href="contact.html" class="btn btn-outline-dark">Request a Quote</a>
-          </div>
-        </div>
-        <div class="svc-detail-media">
-          <div class="svc-media-main">
-            <img src="images/blickpixel-milling-444493.jpg" alt="CNC Machining" loading="lazy" />
-            <div class="svc-media-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-              <span>±0.01mm Tolerance</span>
-            </div>
-          </div>
-          <div class="svc-media-grid">
-            <img src="images/gefrorene_wand-milling-1151358.jpg" alt="Precision Milling" loading="lazy" />
-            <img src="images/652234-factory-1140760.jpg" alt="CNC Components" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CAPABILITIES GRID ===== -->
-<section class="svc-capabilities" id="capabilities">
+<!-- ===== SERVICE DETAIL: FABRICATION ===== -->
+<section class="svc-detail-block" id="fabrication">
   <div class="container">
-    <div class="section-header">
-      <span class="section-label">Technical Data</span>
-      <h2>Machining Capabilities</h2>
-      <p>Full specification of our Musaffah machining center equipment and tolerances.</p>
-    </div>
-    <div class="svc-cap-grid">
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(26,111,168,0.12);color:var(--brand-blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
-        <h4>CNC Milling</h4>
-        <p class="svc-cap-machine">3-Axis &amp; 5-Axis VMC</p>
-        <span class="svc-cap-tol">±0.01mm</span>
-        <p class="svc-cap-mat">MS, SS, Aluminum, Brass</p>
+    <div class="svc-detail-grid">
+      <div class="svc-detail-img">
+        <img src="images/jarmoluk-welding-2819147.jpg" alt="Heavy Steel Fabrication" loading="lazy">
+        <div class="svc-detail-img-badge">ISO 9001:2015 Certified<span>AWS D1.1 · ASME IX · AISC</span></div>
       </div>
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(42,170,138,0.12);color:var(--brand-teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
-        <h4>CNC Turning</h4>
-        <p class="svc-cap-machine">CNC Lathe (Ø up to 500mm)</p>
-        <span class="svc-cap-tol">±0.01mm</span>
-        <p class="svc-cap-mat">MS, SS, Alloy Steel</p>
-      </div>
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(26,111,168,0.12);color:var(--brand-blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div>
-        <h4>CNC Plasma Cutting</h4>
-        <p class="svc-cap-machine">CNC Plasma Table (3m × 6m)</p>
-        <span class="svc-cap-tol">±0.5mm</span>
-        <p class="svc-cap-mat">MS, SS up to 50mm thick</p>
-      </div>
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(42,170,138,0.12);color:var(--brand-teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h4>MIG / TIG Welding</h4>
-        <p class="svc-cap-machine">Lincoln Electric, ESAB</p>
-        <span class="svc-cap-tol">AWS D1.1 / ASME IX</span>
-        <p class="svc-cap-mat">Carbon Steel, SS, Aluminum</p>
-      </div>
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(26,111,168,0.12);color:var(--brand-blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/></svg></div>
-        <h4>Hydraulic Press Brake</h4>
-        <p class="svc-cap-machine">200T Press Brake (4m bed)</p>
-        <span class="svc-cap-tol">±0.2mm</span>
-        <p class="svc-cap-mat">MS, SS up to 12mm</p>
-      </div>
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(42,170,138,0.12);color:var(--brand-teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h4>Shot Blasting</h4>
-        <p class="svc-cap-machine">Automated Blast Cabinet</p>
-        <span class="svc-cap-tol">SA 2.5 Standard</span>
-        <p class="svc-cap-mat">All ferrous metals</p>
-      </div>
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(26,111,168,0.12);color:var(--brand-blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-        <h4>Industrial Painting</h4>
-        <p class="svc-cap-machine">Climate-controlled Spray Booth</p>
-        <span class="svc-cap-tol">DFT per spec</span>
-        <p class="svc-cap-mat">All substrates</p>
-      </div>
-      <div class="svc-cap-card">
-        <div class="svc-cap-icon" style="background:rgba(42,170,138,0.12);color:var(--brand-teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-        <h4>Radial Drilling</h4>
-        <p class="svc-cap-machine">Radial Arm Drill (1.5m arm)</p>
-        <span class="svc-cap-tol">±0.05mm</span>
-        <p class="svc-cap-mat">MS, SS, Cast Iron</p>
+      <div class="svc-detail-text">
+        <span class="section-label">Service 01</span>
+        <h2>Heavy Steel Fabrication &amp; Erection</h2>
+        <div class="section-divider" style="margin-bottom:20px"></div>
+        <p>Accurate Steel Fabrication is one of Abu Dhabi's most capable structural steel fabricators, delivering complex steelwork for industrial, commercial, and infrastructure projects across the UAE and GCC. Our 15,000+ sq. ft. facility in Musaffah handles structural sections up to 500mm depth.</p>
+        <div class="svc-feat-list">
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg></div>
+            <div><h5>Structural Steelwork</h5><p>Columns, beams, trusses, portal frames, and bracing systems.</p></div>
+          </div>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+            <div><h5>Industrial Buildings</h5><p>Pre-engineered and custom steel warehouses, factory sheds, and logistics facilities.</p></div>
+          </div>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg></div>
+            <div><h5>Stainless Steel Works</h5><p>Precision-finished SS cladding, handrails, facades, and architectural metalwork.</p></div>
+          </div>
+        </div>
+        <a href="service-detail.html#sd-fabrication" class="btn btn-primary">Full Details &amp; Specs &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== 04 MAINTENANCE ===== -->
-<section class="svc-detail-section svc-detail-section--alt" id="maintenance">
-  <div class="svc-detail-inner">
-    <div class="container">
-      <div class="section-header">
-        <div class="svc-detail-label" style="justify-content:center">
-          <span class="svc-num-badge svc-num-badge--teal">04</span>
-          <span class="section-label">Maintenance &amp; Specialized Services</span>
+<!-- ===== SERVICE DETAIL: MARINE ===== -->
+<section class="svc-detail-block" id="marine">
+  <div class="container">
+    <div class="svc-detail-grid reverse">
+      <div class="svc-detail-img">
+        <img src="images/beautiful-moments-marine-4019745.jpg" alt="Marine Engineering" loading="lazy">
+        <div class="svc-detail-img-badge">24/7 Emergency Response<span>UAE Ports &amp; Offshore</span></div>
+      </div>
+      <div class="svc-detail-text">
+        <span class="section-label">Service 02</span>
+        <h2>Marine Engineering &amp; Ship Repair</h2>
+        <div class="section-divider" style="margin-bottom:20px"></div>
+        <p>Serving the maritime hubs of Abu Dhabi and Musaffah with 24/7 emergency hull repairs, marine piping, and mechanical services for commercial vessels and offshore platforms. Our marine team deploys to port, anchorage, or our dedicated workshop.</p>
+        <div class="svc-feat-list">
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg></div>
+            <div><h5>Hull Repair &amp; Structural</h5><p>Cut-and-weld hull repairs, structural reinforcement, and corrosion remediation.</p></div>
+          </div>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div><h5>Propeller &amp; Shaft Services</h5><p>Removal, straightening, dynamic balancing, and shaft alignment for all vessel types.</p></div>
+          </div>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div><h5>Marine Hydraulics</h5><p>Hydraulic cylinder repair, hose replacement, and system pressure testing.</p></div>
+          </div>
         </div>
+        <a href="service-detail.html#sd-marine" class="btn btn-primary">Full Details &amp; Specs &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICE DETAIL: CNC ===== -->
+<section class="svc-detail-block" id="cnc">
+  <div class="container">
+    <div class="svc-detail-grid">
+      <div class="svc-detail-img">
+        <img src="images/blickpixel-milling-444493.jpg" alt="CNC Machining" loading="lazy">
+        <div class="svc-detail-img-badge">±0.01mm Tolerance<span>3-Axis &amp; 5-Axis VMC</span></div>
+      </div>
+      <div class="svc-detail-text">
+        <span class="section-label">Service 03</span>
+        <h2>CNC Machining &amp; Precision Manufacturing</h2>
+        <div class="section-divider" style="margin-bottom:20px"></div>
+        <p>Our Musaffah machining center delivers industry-leading precision with tolerances down to ±0.01mm, operating 3-axis and 5-axis VMCs for the most demanding industrial and oilfield applications. We machine mild steel, stainless steel, aluminum, brass, bronze, and engineering plastics.</p>
+        <div class="svc-feat-list">
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+            <div><h5>3-Axis &amp; 5-Axis VMC Milling</h5><p>Complex multi-face machining with ±0.01mm tolerance on all axes.</p></div>
+          </div>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+            <div><h5>CNC Turning</h5><p>Precision turning up to Ø500mm diameter with live tooling capability.</p></div>
+          </div>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div><h5>CAD/CAM Design Integration</h5><p>In-house design-to-manufacture with full CNC simulation and CMM inspection.</p></div>
+          </div>
+        </div>
+        <a href="service-detail.html#sd-cnc" class="btn btn-primary">Full Details &amp; Specs &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICE DETAIL: MAINTENANCE ===== -->
+<section class="svc-detail-block" id="maintenance">
+  <div class="container">
+    <div class="svc-detail-grid reverse">
+      <div class="svc-detail-img">
+        <img src="images/652234-factory-1140760.jpg" alt="Industrial Maintenance" loading="lazy">
+        <div class="svc-detail-img-badge">AMC Available<span>24/7 Emergency Response</span></div>
+      </div>
+      <div class="svc-detail-text">
+        <span class="section-label">Service 04</span>
         <h2>Industrial Maintenance &amp; Specialized Services</h2>
-        <p>Annual maintenance contracts and specialized industrial services ensuring zero downtime for your production operations.</p>
-      </div>
-      <div class="svc-maint-grid">
-        <div class="svc-maint-card">
-          <div class="svc-maint-icon" style="background:rgba(26,111,168,0.08);color:var(--brand-blue)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="section-divider" style="margin-bottom:20px"></div>
+        <p>Annual maintenance contracts and specialized industrial services ensuring zero downtime for your production operations — from hydraulic systems to industrial painting and emergency breakdown response across the UAE.</p>
+        <div class="svc-feat-list">
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div><h5>Hydraulic Services</h5><p>Cylinder repair and rebuild, hose replacement, system pressure testing up to 700 bar.</p></div>
           </div>
-          <h4>Industrial Painting</h4>
-          <ul>
-            <li>Marine-grade epoxy coatings</li>
-            <li>Polyurethane topcoats</li>
-            <li>Anti-corrosion systems</li>
-            <li>DFT per client spec</li>
-          </ul>
-        </div>
-        <div class="svc-maint-card">
-          <div class="svc-maint-icon" style="background:rgba(42,170,138,0.08);color:var(--brand-teal)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><h5>Industrial Painting &amp; Blasting</h5><p>SA 2.5 blasting and marine-grade epoxy/polyurethane coating systems to DFT spec.</p></div>
           </div>
-          <h4>Sand Blasting</h4>
-          <ul>
-            <li>SA 2.5 surface standard</li>
-            <li>Automated blast cabinet</li>
-            <li>All ferrous substrates</li>
-            <li>Pre-paint preparation</li>
-          </ul>
-        </div>
-        <div class="svc-maint-card">
-          <div class="svc-maint-icon" style="background:rgba(26,111,168,0.08);color:var(--brand-blue)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <div class="svc-feat-item">
+            <div class="svc-feat-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><h5>Preventive Maintenance</h5><p>Scheduled inspections, lubrication programs, wear part replacement, and reporting.</p></div>
           </div>
-          <h4>Hydraulic Services</h4>
-          <ul>
-            <li>Cylinder repair &amp; rebuild</li>
-            <li>Hose replacement</li>
-            <li>System pressure testing</li>
-            <li>Seal kit replacement</li>
-          </ul>
         </div>
-        <div class="svc-maint-card">
-          <div class="svc-maint-icon" style="background:rgba(42,170,138,0.08);color:var(--brand-teal)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <h4>Electrical Maintenance</h4>
-          <ul>
-            <li>Panel &amp; switchgear service</li>
-            <li>Motor control maintenance</li>
-            <li>Annual AMC contracts</li>
-            <li>Emergency call-out</li>
-          </ul>
-        </div>
-        <div class="svc-maint-card">
-          <div class="svc-maint-icon" style="background:rgba(26,111,168,0.08);color:var(--brand-blue)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h4>Preventive Maintenance</h4>
-          <ul>
-            <li>Scheduled inspections</li>
-            <li>Lubrication programs</li>
-            <li>Wear part replacement</li>
-            <li>Maintenance reporting</li>
-          </ul>
-        </div>
-        <div class="svc-maint-card svc-maint-card--cta">
-          <div class="svc-maint-icon" style="background:rgba(42,170,138,0.15);color:var(--brand-teal)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h4>24/7 Emergency Response</h4>
-          <p>Round-the-clock availability with rapid deployment teams across the UAE.</p>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:16px">Contact Us Now</a>
-        </div>
+        <a href="service-detail.html#sd-maintenance" class="btn btn-primary">Full Details &amp; Specs &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== INDUSTRIES WE SERVE ===== -->
-<section class="svc-industries">
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-us-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:40px;">
+      <span class="section-label" style="color:var(--brand-teal-l)">Why Choose Us</span>
+      <h2 style="color:#fff">The Accurate Advantage</h2>
+      <p style="color:rgba(255,255,255,0.5)">What sets us apart as the UAE's premier engineering and fabrication partner.</p>
+      <div class="section-divider" style="margin:16px auto 0;"></div>
+    </div>
+    <div class="why-us-grid">
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>International Standards</h4>
+        <p>ISO 9001:2015, AWS D1.1, AISC, and ASME certified — quality and traceability from day one.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Strict Time Adherence</h4>
+        <p>We treat your deadline as our own. Every milestone tracked, on-time delivery guaranteed.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h4>Safety-First Engineering</h4>
+        <p>Zero-incident culture, full PPE compliance, and rigorous NDT testing on every project.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+        <h4>Precision Machining Authority</h4>
+        <p>±0.01mm tolerances with 3-axis and 5-axis VMCs, backed by full CAD/CAM integration.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Dedicated Expert Team</h4>
+        <p>50+ certified engineers, welders, and fabricators managing every project from drawings to delivery.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Single-Source Partner</h4>
+        <p>Steel fabrication, marine, CNC, and maintenance — all under one roof in Musaffah, Abu Dhabi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INDUSTRIES SERVED ===== -->
+<section class="industries-section">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Sectors</span>
-      <h2>Industries We Serve</h2>
-      <p>Our fabrication and engineering capabilities span the UAE's most critical industrial sectors.</p>
+      <span class="section-label">Industries We Serve</span>
+      <h2>Sectors We Work In</h2>
+      <p>Our engineering capabilities serve a wide range of industries across the UAE and GCC region.</p>
+      <div class="section-divider"></div>
     </div>
-    <div class="svc-ind-grid">
-      <div class="svc-ind-card">
-        <div class="svc-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <div class="ind-grid">
+      <div class="ind-card">
+        <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg></div>
         <h4>Oil &amp; Gas</h4>
-        <p>Offshore platforms, pipeline supports, pressure vessels, and process equipment.</p>
+        <p>Structural steel, piping systems, and precision machined components for upstream and downstream operations.</p>
       </div>
-      <div class="svc-ind-card">
-        <div class="svc-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l3-3 4 4 4-4 3 3"/><path d="M21 12V7H3v5"/></svg></div>
-        <h4>Marine &amp; Offshore</h4>
-        <p>Ship repair, hull fabrication, port infrastructure, and marine piping systems.</p>
-      </div>
-      <div class="svc-ind-card">
-        <div class="svc-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg></div>
+      <div class="ind-card">
+        <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
         <h4>Construction</h4>
-        <p>Structural steel frameworks, mezzanine floors, warehouses, and architectural metalwork.</p>
+        <p>Pre-engineered buildings, mezzanine floors, and structural steelwork for commercial and industrial construction.</p>
       </div>
-      <div class="svc-ind-card">
-        <div class="svc-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
-        <h4>Petrochemical</h4>
-        <p>Precision-machined components, custom flanges, valves, and structural supports.</p>
+      <div class="ind-card">
+        <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l3-3 4 4 4-4 3 3"/></svg></div>
+        <h4>Marine &amp; Offshore</h4>
+        <p>Ship repair, hull fabrication, offshore platform structures, and marine piping for UAE maritime operations.</p>
       </div>
-      <div class="svc-ind-card">
-        <div class="svc-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h4>Power &amp; Utilities</h4>
-        <p>Steel structures for power plants, substations, and transmission towers.</p>
+      <div class="ind-card">
+        <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/></svg></div>
+        <h4>Manufacturing</h4>
+        <p>Custom fabricated components, precision machined parts, and maintenance services for manufacturing plants.</p>
       </div>
-      <div class="svc-ind-card">
-        <div class="svc-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h4>Government Infrastructure</h4>
-        <p>Bridges, walkways, handrails, and structural steel for public infrastructure.</p>
+      <div class="ind-card">
+        <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+        <h4>Power &amp; Energy</h4>
+        <p>Structural supports, pressure vessels, and precision components for power generation and energy facilities.</p>
+      </div>
+      <div class="ind-card">
+        <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Infrastructure</h4>
+        <p>Bridges, walkways, access platforms, and structural steel for public infrastructure and government projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="trust" style="padding:64px 0;background:var(--offwhite);">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-label">Client Testimonials</span>
+      <h2>What Our Clients Say</h2>
+      <p>Real feedback from engineers, project managers, and procurement leads who trust us with their most demanding work.</p>
+    </div>
+    <div class="owl-carousel testimonials-owl">
+      <div class="testimonial">
+        <div class="tc-stars">★★★★★</div>
+        <p>"Accurate Steel's attention to detail during the fabrication of our offshore platform supports was exceptional. They delivered ahead of schedule without compromising on a single weld quality."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SA</div>
+          <div><strong>Sami Al-Farsi</strong><span>Project Director, Marine Logistics UAE</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="tc-stars">★★★★★</div>
+        <p>"Working with their engineering team felt like having an internal partner. Their ability to handle complex structural modifications on-site was crucial for our refinery project."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SJ</div>
+          <div><strong>Sarah Jenkins</strong><span>Senior Structural Engineer, Global Oil</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="tc-stars">★★★★★</div>
+        <p>"From shop drawings to final erection, the precision was flawless. The steelwork for our new warehouse fits perfectly, meeting all international safety standards."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">DC</div>
+          <div><strong>David Chen</strong><span>Operations Manager, Far East Industrial</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="tc-stars">★★★★★</div>
+        <p>"Their marine repair team responded within hours and had our vessel back in operation faster than any contractor we've worked with. Truly 24/7 support."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">KA</div>
+          <div><strong>Khalid Al-Mansoori</strong><span>Fleet Manager, Gulf Marine Services</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="tc-stars">★★★★★</div>
+        <p>"The CNC machining tolerances they achieved were beyond our expectations. Critical components for our refinery were delivered on spec and on time, every time."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RM</div>
+          <div><strong>Ravi Menon</strong><span>Procurement Lead, Petrofac UAE</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -534,16 +778,12 @@
 <!-- ===== CTA ===== -->
 <section class="svc-cta">
   <div class="container">
-    <div class="svc-cta-inner">
-      <div class="svc-cta-text">
-        <span class="section-label" style="color:var(--brand-teal-l)">Start Your Project</span>
-        <h2>Ready to Discuss Your Requirements?</h2>
-        <p>Our engineering team is available 24/7. Tell us about your project and we'll respond within 24 hours with a detailed technical proposal.</p>
-      </div>
-      <div class="svc-cta-actions">
-        <a href="contact.html" class="btn btn-primary btn-lg">Get a Quote</a>
-        <a href="projects.html" class="btn btn-outline btn-lg">View Our Work</a>
-      </div>
+    <span class="section-label" style="color:var(--brand-teal-l)">Start Your Project</span>
+    <h2>Ready to Discuss Your Requirements?</h2>
+    <p>Our engineering team is available 24/7. Tell us about your project and we'll respond within 24 hours with a detailed technical proposal.</p>
+    <div class="svc-cta-actions">
+      <a href="contact.html" class="btn btn-primary btn-lg">Get a Quote &rarr;</a>
+      <a href="service-detail.html" class="btn btn-outline btn-lg">View Service Details</a>
     </div>
   </div>
 </section>
@@ -552,7 +792,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo logo--light">
         <img src="images/logo.png" alt="Accurate Steel Fabrication" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <span class="logo-fallback"><span class="logo-mark">ASF</span><span class="logo-text">Accurate Steel<br><small>Fabrication EST</small></span></span>
       </a>
@@ -560,7 +800,7 @@
       <div class="social-links">
         <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -577,10 +817,12 @@
     <div class="footer-col">
       <h4>Our Services</h4>
       <ul>
-        <li><a href="services.html#fabrication">Heavy Steel Fabrication</a></li>
-        <li><a href="services.html#marine">Marine Engineering</a></li>
-        <li><a href="services.html#cnc">CNC Machining</a></li>
-        <li><a href="services.html#maintenance">Industrial Maintenance</a></li>
+        <li><a href="#fabrication">Heavy Steel Fabrication</a></li>
+        <li><a href="#marine">Marine Engineering</a></li>
+        <li><a href="#cnc">CNC Machining</a></li>
+        <li><a href="#maintenance">Industrial Maintenance</a></li>
+        <li><a href="#erection">Structural Erection</a></li>
+        <li><a href="#painting">Blasting &amp; Painting</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -602,5 +844,30 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+$(function(){
+  $('.testimonials-owl').owlCarousel({
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 4500,
+    autoplayHoverPause: true,
+    smartSpeed: 700,
+    dots: true,
+    nav: true,
+    navText: [
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>'
+    ],
+    responsive: {
+      0:    { items: 1 },
+      640:  { items: 2 },
+      1024: { items: 3 }
+    }
+  });
+});
+</script>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    ACCURATE STEEL FABRICATION — MAIN STYLES
    Brand Palette: Steel Blue + Teal/Green
    ============================================ */
@@ -214,30 +214,17 @@ h4 { font-size: 1rem; font-weight: 600; }
   transform-origin: center;
 }
 
-/* Subtle background fill on hover */
-.main-nav a::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(26,79,122,0.06), rgba(42,170,138,0.06));
-  border-radius: var(--radius);
-  opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
+/* No background fill on hover — underline only */
+.main-nav a::before { display: none; }
 
 .main-nav a:hover {
   color: var(--brand-blue);
-}
-.main-nav a:hover::before {
-  opacity: 1;
-  transform: scale(1);
 }
 .main-nav a:hover::after {
   transform: translateX(-50%) scaleX(1);
 }
 
-/* Active state — always show underline + teal color */
+/* Active state — underline only, no background */
 .main-nav a.active {
   color: var(--brand-teal);
   font-weight: 600;
@@ -246,11 +233,7 @@ h4 { font-size: 1rem; font-weight: 600; }
   transform: translateX(-50%) scaleX(1);
   background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-l));
 }
-.main-nav a.active::before {
-  opacity: 1;
-  transform: scale(1);
-  background: rgba(42,170,138,0.08);
-}
+.main-nav a.active::before { display: none; }
 
 .nav-cta { margin-left: 12px; }
 
@@ -559,7 +542,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    ABOUT STRIP
    ============================================ */
 .about-strip {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--white);
 }
 
@@ -623,7 +606,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    SERVICES
    ============================================ */
 .services {
-  padding: 96px 0;
+  padding: 72px 0;
   background: var(--offwhite);
 }
 
@@ -709,7 +692,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    CAPABILITIES TABLE
    ============================================ */
 .capabilities {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--brand-blue-d);
 }
 .capabilities .section-header h2 { color: var(--white); }
@@ -758,7 +741,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    PROCESS
    ============================================ */
 .process {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--white);
 }
 
@@ -808,7 +791,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    PROJECTS
    ============================================ */
 .projects {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--offwhite);
 }
 
@@ -916,7 +899,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    TRUST SIGNALS
    ============================================ */
 .trust {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--white);
 }
 
@@ -1079,14 +1062,14 @@ h4 { font-size: 1rem; font-weight: 600; }
    ============================================ */
 .testimonials-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 .testimonials-header h2 {
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-  margin: 10px 0 14px;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  margin: 10px 0 12px;
 }
 .testimonials-header p {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--steel);
   max-width: 540px;
   margin: 0 auto;
@@ -1096,12 +1079,15 @@ h4 { font-size: 1rem; font-weight: 600; }
 .testimonial {
   background: var(--white);
   border-radius: 16px;
-  padding: 32px 28px;
+  padding: 28px 24px;
   border: 1px solid var(--border);
   box-shadow: 0 2px 16px rgba(13,27,42,0.06);
-  margin: 8px 12px 16px;
+  margin: 8px 10px 20px;
   position: relative;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 .testimonial:hover {
   box-shadow: 0 12px 36px rgba(13,27,42,0.12);
@@ -1111,9 +1097,9 @@ h4 { font-size: 1rem; font-weight: 600; }
 .testimonial::before {
   content: '\201C';
   position: absolute;
-  top: 16px;
-  right: 24px;
-  font-size: 5rem;
+  top: 12px;
+  right: 20px;
+  font-size: 4rem;
   line-height: 1;
   color: var(--brand-teal);
   opacity: 0.12;
@@ -1121,45 +1107,116 @@ h4 { font-size: 1rem; font-weight: 600; }
   pointer-events: none;
 }
 .testimonial p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--charcoal);
   line-height: 1.8;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-style: italic;
+  flex: 1;
 }
 .testimonial-author {
   display: flex;
   align-items: center;
   gap: 12px;
   border-top: 1px solid var(--border);
-  padding-top: 18px;
+  padding-top: 16px;
+  margin-top: auto;
 }
 .author-avatar {
-  width: 44px; height: 44px;
+  width: 42px; height: 42px;
   background: linear-gradient(135deg, var(--brand-blue), var(--brand-teal));
   color: var(--white);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   flex-shrink: 0;
 }
-.testimonial-author strong { display: block; font-size: 0.88rem; color: var(--brand-blue-d); }
-.testimonial-author span { font-size: 0.75rem; color: var(--steel); }
+.testimonial-author strong { display: block; font-size: 0.85rem; color: var(--brand-blue-d); }
+.testimonial-author span { font-size: 0.72rem; color: var(--steel); }
 
 /* Stars */
 .tc-stars {
   color: #f59e0b;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   letter-spacing: 2px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+/* Testimonials owl wrapper */
+.testimonials-owl {
+  padding: 0 40px 48px;
+  position: relative;
+}
+
+/* Nav buttons */
+.testimonials-owl .owl-nav button {
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  border-radius: 50% !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+  color: var(--brand-blue) !important;
+  z-index: 10;
+}
+.testimonials-owl .owl-nav button:hover {
+  background: var(--brand-teal) !important;
+  border-color: var(--brand-teal) !important;
+  color: var(--white) !important;
+}
+.testimonials-owl .owl-nav button svg { pointer-events: none; }
+.testimonials-owl .owl-nav .owl-prev { left: 0; }
+.testimonials-owl .owl-nav .owl-next { right: 0; }
+.testimonials-owl .owl-nav button span { display: none; }
+
+/* Dots */
+.testimonials-owl .owl-dots {
+  text-align: center;
+  margin-top: 24px;
+}
+.testimonials-owl .owl-dot span {
+  width: 8px !important;
+  height: 8px !important;
+  background: var(--border) !important;
+  border-radius: 50% !important;
+  margin: 0 4px !important;
+  transition: all 0.3s ease !important;
+}
+.testimonials-owl .owl-dot.active span,
+.testimonials-owl .owl-dot:hover span {
+  background: var(--brand-teal) !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* Mobile: hide nav arrows, use dots only */
+@media (max-width: 640px) {
+  .testimonials-owl {
+    padding: 0 8px 48px;
+  }
+  .testimonials-owl .owl-nav { display: none !important; }
+  .testimonial { margin: 4px 4px 16px; padding: 22px 18px; }
+}
+@media (max-width: 768px) {
+  .testimonials-owl {
+    padding: 0 16px 48px;
+  }
+  .testimonials-owl .owl-nav .owl-prev { left: -4px; }
+  .testimonials-owl .owl-nav .owl-next { right: -4px; }
 }
 
 /* ============================================
    RFQ FORM
    ============================================ */
 .rfq {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--brand-blue-d);
 }
 .rfq .section-label { color: var(--brand-teal-l); }
@@ -1615,7 +1672,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    WHO WE ARE SECTION
    ============================================ */
 .who-we-are {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--white);
 }
 .wwa-grid {
@@ -1815,7 +1872,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    PROJECTS GALLERY (HOME)
    ============================================ */
 .projects {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--offwhite);
 }
 .projects-gallery {
@@ -1971,7 +2028,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    THE ACCURATE ADVANTAGE
    ============================================ */
 .accurate-advantage {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--offwhite);
 }
 .advantage-grid {
@@ -2095,7 +2152,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    QHSE SECTION (About page)
    ============================================ */
 .qhse-section {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--offwhite);
 }
 .qhse-grid {
@@ -2160,7 +2217,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    INDUSTRIES SERVED (Services page)
    ============================================ */
 .industries-served {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--white);
 }
 .industries-served-grid {
@@ -2195,7 +2252,7 @@ h4 { font-size: 1rem; font-weight: 600; }
    CASE STUDIES (Projects page)
    ============================================ */
 .case-studies {
-  padding: 96px 0;
+  padding: 64px 0;
   background: var(--brand-blue-d);
 }
 .case-studies .section-header h2 { color: var(--white); }
@@ -2305,60 +2362,6 @@ h4 { font-size: 1rem; font-weight: 600; }
 
 /* Clients slider */
 .clients-owl { padding: 8px 0 16px; }
-
-/* Testimonials slider */
-.testimonials-owl {
-  padding: 0 32px 56px;
-  position: relative;
-}
-
-/* Nav buttons */
-.testimonials-owl .owl-nav button {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50% !important;
-  background: var(--white) !important;
-  border: 1px solid var(--border) !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  transition: all 0.25s ease;
-  color: var(--brand-blue) !important;
-}
-.testimonials-owl .owl-nav button:hover {
-  background: var(--brand-teal) !important;
-  border-color: var(--brand-teal) !important;
-  color: var(--white) !important;
-  box-shadow: 0 6px 20px rgba(0,137,123,0.25);
-}
-.testimonials-owl .owl-nav button svg { pointer-events: none; }
-.testimonials-owl .owl-nav .owl-prev { left: -8px; }
-.testimonials-owl .owl-nav .owl-next { right: -8px; }
-.testimonials-owl .owl-nav button span { display: none; }
-
-/* Dots */
-.testimonials-owl .owl-dots {
-  text-align: center;
-  margin-top: 32px;
-}
-.testimonials-owl .owl-dot span {
-  width: 8px !important;
-  height: 8px !important;
-  background: var(--border) !important;
-  border-radius: 50% !important;
-  margin: 0 4px !important;
-  transition: all 0.3s ease !important;
-}
-.testimonials-owl .owl-dot.active span,
-.testimonials-owl .owl-dot:hover span {
-  background: var(--brand-teal) !important;
-  width: 28px !important;
-  border-radius: 4px !important;
-}
 
 /* Animate.css integration for Owl animateIn/Out */
 .owl-carousel .animated { animation-duration: 600ms; }
@@ -2624,3 +2627,4 @@ h4 { font-size: 1rem; font-weight: 600; }
   .video-showcase { padding: 72px 0; }
   .video-frame-wrap::before { display: none; }
 }
+
