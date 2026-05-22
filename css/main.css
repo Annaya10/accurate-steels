@@ -2628,3 +2628,44 @@ h4 { font-size: 1rem; font-weight: 600; }
   .video-frame-wrap::before { display: none; }
 }
 
+
+/* ============================================
+   VIDEO SHOWCASE — MINIMAL (Homepage)
+   ============================================ */
+.video-showcase-minimal {
+  padding: 80px 0;
+  background: var(--charcoal);
+}
+
+.vsm-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.vsm-header h2 {
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.vsm-header p {
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.vsm-embed {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+  aspect-ratio: 16 / 9;
+}
+.vsm-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
